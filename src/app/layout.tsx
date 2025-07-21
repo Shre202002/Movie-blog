@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import { Inter, Space_Grotesk } from 'next/font/google';
-import { AppProgressBar as ProgressBar } from 'next-nprogress-bar';
+import NextProgressBar from '@/components/progress-bar';
 import './globals.css';
 import { cn } from '@/lib/utils';
 import { Header } from '@/components/header';
@@ -40,7 +40,7 @@ export default function RootLayout({
         <div className="flex-grow">{children}</div>
         <Footer />
         <Toaster />
-        <ProgressBar height="4px" color="hsl(var(--accent))" options={{ showSpinner: false }} />
+        <NextProgressBar />
       </body>
     </html>
   );
