@@ -20,11 +20,12 @@
       "https://placehold.co/600x400.png",
       "https://placehold.co/600x400.png"
     ],
-    "downloadLinks": [
-      { "quality": "480p", "url": "#" },
-      { "quality": "720p", "url": "#" },
-      { "quality": "1080p", "url": "#" }
-    ]
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
   },
   {
     "id": "58423",
@@ -46,7 +47,12 @@
       "https://placehold.co/600x400.png",
       "https://placehold.co/600x400.png"
     ],
-    "downloadLinks": []
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
   },
   {
     "id": "52099",
@@ -68,11 +74,12 @@
       "https://placehold.co/600x400.png",
       "https://placehold.co/600x400.png"
     ],
-    "downloadLinks": [
-      { "quality": "480p", "url": "#" },
-      { "quality": "720p", "url": "#" },
-      { "quality": "1080p", "url": "#" }
-    ]
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
   },
   {
     "id": "43013",
@@ -94,10 +101,12 @@
       "https://placehold.co/600x400.png",
       "https://placehold.co/600x400.png"
     ],
-    "downloadLinks": [
-      { "quality": "480p", "url": "#" },
-      { "quality": "720p", "url": "#" }
-    ]
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
   },
   {
     "id": "19221",
@@ -119,9 +128,11 @@
       "https://placehold.co/600x400.png",
       "https://placehold.co/600x400.png"
     ],
-    "downloadLinks": [
-      { "quality": "720p", "url": "#" },
-      { "quality": "1080p", "url": "#" }
-    ]
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
   }
 ]

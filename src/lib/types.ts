@@ -13,8 +13,10 @@ export interface Movie {
   quality: string;
   size: string;
   screenshots: string[];
+  streamUrl: string;
   downloadLinks: {
-    quality: string;
-    url: string;
-  }[];
+    '480p': string;
+    '720p': string;
+    '1080p': string;
+  };
 }

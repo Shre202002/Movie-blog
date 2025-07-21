@@ -7,7 +7,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Button } from '@/components/ui/button';
-import { DownloadCloud, Clapperboard, Film, Calendar, User, Languages, Tv, Star, Camera } from 'lucide-react';
+import { DownloadCloud, Clapperboard, Film, Calendar, User, Languages, Tv, Star, Camera, PlayCircle } from 'lucide-react';
 
 async function AiPoweredSummary({ movie }: { movie: Movie }) {
   const summaryResult = await generateMovieSummary({
@@ -109,7 +109,24 @@ function Screenshots({ screenshots }: { screenshots: string[] }) {
     );
 }
 
-function DownloadLinks({ links }: { links: { quality: string, url: string }[] }) {
+function StreamOnline({ link }: { link: string }) {
+    return (
+        <section className="space-y-4">
+            <h2 className="text-2xl font-bold font-headline flex items-center gap-2">
+                <PlayCircle className="w-6 h-6 text-primary" />
+                Stream Online
+            </h2>
+            <div className="grid grid-cols-1">
+                 <Button size="lg" disabled>
+                    Stream in HD
+                </Button>
+            </div>
+        </section>
+    );
+}
+
+
+function DownloadLinks({ links }: { links: { '480p': string; '720p': string; '1080p': string; } }) {
     return (
         <section className="space-y-4">
             <h2 className="text-2xl font-bold font-headline flex items-center gap-2">
@@ -117,9 +134,9 @@ function DownloadLinks({ links }: { links: { quality: string, url: string }[] })
                 Download Links
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-                {links.map((link, index) => (
-                     <Button key={index} size="lg" disabled>
-                        Download in {link.quality}
+                {Object.entries(links).map(([quality, url]) => (
+                     <Button key={quality} size="lg" disabled>
+                        Download in {quality}
                     </Button>
                 ))}
             </div>
@@ -171,6 +188,9 @@ export default async function MovieDetailsPage({ params }: { params: { id: strin
       
       <Separator className="my-8 md:my-12" />
       <Screenshots screenshots={movie.screenshots} />
+      
+      <Separator className="my-8 md:my-12" />
+      <StreamOnline link={movie.streamUrl} />
 
       <Separator className="my-8 md:my-12" />
       <DownloadLinks links={movie.downloadLinks} />
