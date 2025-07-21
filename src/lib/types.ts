@@ -12,7 +12,6 @@ export interface Movie {
   language: string;
   quality: string;
   size: string;
-  screenshots: string[];
   streamUrl: string;
   downloadLinks: {
     '480p': string;

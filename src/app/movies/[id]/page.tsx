@@ -8,7 +8,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Button } from '@/components/ui/button';
-import { DownloadCloud, Clapperboard, Film, Calendar, User, Languages, Tv, Star, Camera, PlayCircle, ChevronRight } from 'lucide-react';
+import { DownloadCloud, Clapperboard, Film, Calendar, User, Languages, Tv, Star, PlayCircle, ChevronRight } from 'lucide-react';
 
 function Breadcrumb({ movieTitle, genre }: { movieTitle: string; genre: string }) {
     const primaryGenre = genre.split(',')[0].trim();
@@ -112,30 +112,6 @@ function MovieInformation({ movie }: { movie: Movie }) {
     );
 }
 
-function Screenshots({ screenshots }: { screenshots: string[] }) {
-    return (
-        <section className="space-y-4">
-            <h2 className="text-2xl font-bold font-headline flex items-center gap-2">
-                <Camera className="w-6 h-6 text-primary" />
-                Screenshots
-            </h2>
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-                {screenshots.map((src, index) => (
-                    <div key={index} className="relative aspect-video rounded-lg overflow-hidden border">
-                        <Image
-                            src={src}
-                            alt={`Screenshot ${index + 1}`}
-                            fill
-                            className="object-cover transition-transform hover:scale-105"
-                            data-ai-hint="movie screenshot"
-                        />
-                    </div>
-                ))}
-            </div>
-        </section>
-    );
-}
-
 function StreamOnline({ link }: { link: string }) {
     return (
         <section className="space-y-4">
@@ -213,9 +189,6 @@ export default async function MovieDetailsPage({ params }: { params: { id: strin
             </section>
         </div>
       </div>
-      
-      <Separator className="my-8 md:my-12" />
-      <Screenshots screenshots={movie.screenshots} />
       
       <Separator className="my-8 md:my-12" />
       <StreamOnline link={movie.streamUrl} />
