@@ -144,11 +144,9 @@ function StreamOnline({ link }: { link: string }) {
                 Stream Online
             </h2>
             <div className="grid grid-cols-1">
-                 <Link href={link} passHref>
-                    <Button asChild size="lg">
-                        <a>Stream in HD</a>
-                    </Button>
-                </Link>
+                 <Button asChild size="lg">
+                    <Link href={link}>Stream in HD</Link>
+                </Button>
             </div>
         </section>
     );
@@ -164,11 +162,9 @@ function DownloadLinks({ links }: { links: { '480p': string; '720p': string; '10
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {Object.entries(links).map(([quality, url]) => (
-                     <Link href={url} passHref key={quality}>
-                        <Button asChild size="lg">
-                           <a>Download in {quality}</a>
-                        </Button>
-                    </Link>
+                     <Button asChild size="lg" key={quality}>
+                       <Link href={url}>Download in {quality}</Link>
+                    </Button>
                 ))}
             </div>
         </section>
