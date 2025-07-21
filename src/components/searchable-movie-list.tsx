@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useState, useMemo } from 'react';
@@ -21,7 +22,9 @@ export function SearchableMovieList({ movies }: { movies: Movie[] }) {
   const allGenres = useMemo(() => {
     const genres = new Set<string>();
     movies.forEach(movie => {
-      movie.genre.split(',').forEach(g => genres.add(g.trim()));
+      if (movie.genre && Array.isArray(movie.genre)) {
+        movie.genre.forEach(g => genres.add(g.trim()));
+      }
     });
     return ['All', ...Array.from(genres).sort()];
   }, [movies]);
@@ -32,7 +35,7 @@ export function SearchableMovieList({ movies }: { movies: Movie[] }) {
     // Filter by selected genre
     if (selectedGenre && selectedGenre !== 'All') {
       result = result.filter(movie =>
-        movie.genre.toLowerCase().split(',').map(g => g.trim()).includes(selectedGenre.toLowerCase())
+        movie.genre && Array.isArray(movie.genre) && movie.genre.map(g => g.toLowerCase()).includes(selectedGenre.toLowerCase())
       );
     }
     

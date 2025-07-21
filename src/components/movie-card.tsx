@@ -1,3 +1,4 @@
+
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Movie } from '@/lib/types';
@@ -6,6 +7,10 @@ import { Badge } from '@/components/ui/badge';
 import { Star } from 'lucide-react';
 
 export function MovieCard({ movie }: { movie: Movie }) {
+  const displayYear = movie.releaseDate && typeof movie.releaseDate === 'string'
+    ? movie.releaseDate.split(', ')[1]
+    : 'N/A';
+
   return (
     <Link href={`/movies/${movie.id}`} className="group block outline-none" tabIndex={0}>
       <Card className="h-full overflow-hidden transition-all duration-300 group-hover:shadow-xl group-hover:scale-105 group-hover:border-primary focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background flex flex-col">
@@ -27,13 +32,13 @@ export function MovieCard({ movie }: { movie: Movie }) {
         </CardContent>
         <div className="p-4 flex flex-col flex-grow">
             <CardTitle className="font-headline text-lg text-foreground truncate">{movie.title}</CardTitle>
-            <div className="text-sm text-muted-foreground mt-1">{movie.releaseDate.split(', ')[1]}</div>
+            <div className="text-sm text-muted-foreground mt-1">{displayYear}</div>
             <CardFooter className="p-0 pt-4 mt-auto flex justify-between items-center">
                 <div className="flex items-center gap-1.5 text-foreground font-semibold">
                     <Star className="w-4 h-4 text-accent fill-accent" />
-                    <span>{movie.rating.toFixed(1)}</span>
+                    <span>{movie.rating ? movie.rating.toFixed(1) : 'N/A'}</span>
                 </div>
-                <Badge variant="secondary" className="truncate">{movie.genre.split(',')[0]}</Badge>
+                <Badge variant="secondary" className="truncate">{movie.genre && movie.genre[0]}</Badge>
             </CardFooter>
         </div>
       </Card>

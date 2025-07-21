@@ -3,10 +3,11 @@ export interface Movie {
   title: string;
   posterUrl: string;
   releaseDate: string;
+  slug:string;
   rating: number;
-  genre: string;
+  genre: Array<string>;
   director: string;
-  actors: string;
+  actors: Array<string>;
   plot: string;
   comingSoon: boolean;
   language: string;
