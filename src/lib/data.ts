@@ -1,8 +1,9 @@
-import fs from 'fs/promises';
-import path from 'path';
+import { db } from './firebase';
+import { collection, getDocs, doc, getDoc, query, where, limit } from 'firebase/firestore';
 import type { Movie } from './types';
+import { slugify } from './utils';
 
-// Use a simple cache to avoid re-reading the file on every request in development
+// Use a simple cache to avoid re-reading from firestore on every request in development
 let movieCache: Movie[] | null = null;
 
 export async function getMovies(): Promise<Movie[]> {
@@ -11,18 +12,65 @@ export async function getMovies(): Promise<Movie[]> {
   }
   
   try {
-    const filePath = path.join(process.cwd(), 'src/data/movies.json');
-    const jsonData = await fs.readFile(filePath, 'utf-8');
-    const movies: Movie[] = JSON.parse(jsonData);
+    const moviesCollection = collection(db, 'movies');
+    const movieSnapshot = await getDocs(moviesCollection);
+    const movies: Movie[] = movieSnapshot.docs.map(doc => {
+      const data = doc.data();
+      return {
+        id: doc.id,
+        slug: data.slug || slugify(data.title), // Ensure slug exists
+        ...data
+      } as Movie
+    });
     movieCache = movies;
     return movies;
   } catch (error) {
-    console.error("Failed to read movies.json", error);
+    console.error("Failed to fetch movies from Firestore", error);
     return []; // Return empty array on error
   }
 }
 
 export async function getMovieById(id: string): Promise<Movie | undefined> {
-  const movies = await getMovies();
-  return movies.find(movie => movie.id === id);
+  try {
+    const movieDocRef = doc(db, 'movies', id);
+    const movieDoc = await getDoc(movieDocRef);
+
+    if (!movieDoc.exists()) {
+      return undefined;
+    }
+
+    const data = movieDoc.data();
+    return { 
+      id: movieDoc.id, 
+      slug: data.slug || slugify(data.title),
+      ...data 
+    } as Movie;
+  } catch (error) {
+    console.error(`Failed to fetch movie with id ${id} from Firestore`, error);
+    return undefined;
+  }
+}
+
+export async function getMovieBySlug(slug: string): Promise<Movie | undefined> {
+  try {
+    const moviesCollection = collection(db, 'movies');
+    const q = query(moviesCollection, where("slug", "==", slug), limit(1));
+    const querySnapshot = await getDocs(q);
+
+    if (querySnapshot.empty) {
+      console.log(`No movie found with slug: ${slug}`);
+      return undefined;
+    }
+
+    const movieDoc = querySnapshot.docs[0];
+    const data = movieDoc.data();
+    return { 
+        id: movieDoc.id, 
+        ...data 
+    } as Movie;
+
+  } catch (error) {
+    console.error(`Failed to fetch movie with slug ${slug} from Firestore`, error);
+    return undefined;
+  }
 }
