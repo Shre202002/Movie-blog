@@ -10,12 +10,19 @@ import { Skeleton } from '@/components/ui/skeleton';
 import { Button } from '@/components/ui/button';
 import { DownloadCloud, Clapperboard, Film, Calendar, User, Languages, Tv, Star, Camera, PlayCircle, ChevronRight } from 'lucide-react';
 
-function Breadcrumb({ movieTitle }: { movieTitle: string }) {
+function Breadcrumb({ movieTitle, genre }: { movieTitle: string; genre: string }) {
+    const primaryGenre = genre.split(',')[0].trim();
     return (
         <nav aria-label="breadcrumb" className="mb-6">
             <ol className="flex items-center space-x-2 text-sm text-muted-foreground">
                 <li>
                     <Link href="/" className="hover:text-primary transition-colors">Home</Link>
+                </li>
+                <li>
+                    <ChevronRight className="h-4 w-4" />
+                </li>
+                <li>
+                    <Link href={`/?genre=${primaryGenre}`} className="hover:text-primary transition-colors">{primaryGenre}</Link>
                 </li>
                 <li>
                     <ChevronRight className="h-4 w-4" />
@@ -178,7 +185,7 @@ export default async function MovieDetailsPage({ params }: { params: { id: strin
 
   return (
     <main className="container mx-auto px-4 py-8">
-      <Breadcrumb movieTitle={movie.title} />
+      <Breadcrumb movieTitle={movie.title} genre={movie.genre} />
       <h1 className="text-3xl lg:text-4xl font-bold font-headline text-primary mb-6 text-center">{movie.title}</h1>
       <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
         <div className="md:col-span-1">
