@@ -5,15 +5,177 @@
     "title": "Kesari Veer",
     "posterUrl": "https://image.tmdb.org/t/p/w185/fRNg31Cz03qsx3EteqHhcQgLcTa.jpg",
     "releaseDate": "2025",
-    "rating": 7.5,
-    "genre": "Action, Drama",
+    "rating": 7.8,
+    "genre": "Action, War, History",
     "director": "Anurag Singh",
     "actors": "Akshay Kumar, Parineeti Chopra",
-    "plot": "Based on an incredible true story of the Battle of Saragarhi in which an army of 21 Sikhs fought against 10,000 Afghans in 1897.",
+    "plot": "A retelling of the historic Battle of Saragarhi where 21 Sikh soldiers bravely fought against an army of 10,000 Afghan invaders. This film chronicles their unwavering courage and sacrifice for their motherland.",
+    "comingSoon": true,
+    "language": "Hindi",
+    "quality": "HDRip",
+    "size": "N/A",
+    "screenshots": [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png"
+    ],
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
+  },
+  {
+    "id": "58959",
+    "title": "Aap Jaisa Koi",
+    "posterUrl": "https://image.tmdb.org/t/p/w185/fV9dswGQCvbpVsj1JOTrYCeos8w.jpg",
+    "releaseDate": "2025",
+    "rating": 6.5,
+    "genre": "Romance, Drama",
+    "director": "N/A",
+    "actors": "N/A",
+    "plot": "A romantic drama that explores the complexities of modern relationships, heartbreaks, and the journey of finding a soulmate who is truly one of a kind.",
+    "comingSoon": true,
+    "language": "Hindi",
+    "quality": "WebRip",
+    "size": "N/A",
+    "screenshots": [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png"
+    ],
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
+  },
+  {
+    "id": "58957",
+    "title": "Dhaai Akshar Prem Ke",
+    "posterUrl": "https://image.tmdb.org/t/p/w185/gabkUhs9jgF88XuIcn2ySre5HqM.jpg",
+    "releaseDate": "2000",
+    "rating": 5.1,
+    "genre": "Romance, Action",
+    "director": "Raj Kanwar",
+    "actors": "Abhishek Bachchan, Aishwarya Rai Bachchan",
+    "plot": "A classic Bollywood romance where a case of mistaken identity leads to a web of love, lies, and family drama. Two strangers pretend to be married, only to find themselves falling in love for real amidst growing dangers.",
     "comingSoon": false,
     "language": "Hindi",
-    "quality": "1080p BluRay",
-    "size": "2.5GB",
+    "quality": "WebRip",
+    "size": "N/A",
+    "screenshots": [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png"
+    ],
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
+  },
+  {
+    "id": "58952",
+    "title": "Aankhon ki Gustaakhiyan",
+    "posterUrl": "https://image.tmdb.org/t/p/w185/qaGwsUWbE4NU9w4u4UqomgvK6fw.jpg",
+    "releaseDate": "2025",
+    "rating": 6.8,
+    "genre": "Romance, Comedy",
+    "director": "N/A",
+    "actors": "N/A",
+    "plot": "A lighthearted romantic comedy about the playful and mischievous glances that spark an unexpected love story between two unlikely individuals.",
+    "comingSoon": true,
+    "language": "Hindi",
+    "quality": "HDTC",
+    "size": "N/A",
+    "screenshots": [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png"
+    ],
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
+  },
+  {
+    "id": "58941",
+    "title": "Maalik",
+    "posterUrl": "https://image.tmdb.org/t/p/w185/etb6zsDB8SmIWBKXIUI2U73gfUH.jpg",
+    "releaseDate": "2025",
+    "rating": 7.2,
+    "genre": "Action, Thriller",
+    "director": "N/A",
+    "actors": "N/A",
+    "plot": "An intense action-thriller where a man rises against a corrupt system to fight for justice and protect his community, becoming a leader and master of his own destiny.",
+    "comingSoon": true,
+    "language": "Hindi",
+    "quality": "HDTS",
+    "size": "N/A",
+    "screenshots": [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png"
+    ],
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
+  },
+  {
+    "id": "56105",
+    "title": "Zero Se Restart",
+    "posterUrl": "https://image.tmdb.org/t/p/w185/9bq3meyvTnXt4t2aF11ZH4f9ii9.jpg",
+    "releaseDate": "2024",
+    "rating": 6.9,
+    "genre": "Drama, Inspirational",
+    "director": "N/A",
+    "actors": "N/A",
+    "plot": "An inspiring story of a person who loses everything and is forced to start over from scratch. It's a journey of resilience, determination, and the power of a fresh start.",
+    "comingSoon": false,
+    "language": "Hindi",
+    "quality": "WebRip",
+    "size": "N/A",
+    "screenshots": [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png"
+    ],
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
+  },
+  {
+    "id": "43013",
+    "title": "Rocket Gang",
+    "posterUrl": "https://image.tmdb.org/t/p/w185/8icRtVuWUDvBITWCeMBmRTL8chu.jpg",
+    "releaseDate": "2022",
+    "rating": 6.3,
+    "genre": "Comedy, Horror, Musical",
+    "director": "Bosco Martis",
+    "actors": "Aditya Seal, Nikita Dutta",
+    "plot": "A group of friends on vacation encounter supernatural events in a haunted villa. They must come together and use their dance skills to appease the spirits and survive the night.",
+    "comingSoon": false,
+    "language": "Hindi",
+    "quality": "WebRip",
+    "size": "N/A",
     "screenshots": [
       "https://placehold.co/600x400.png",
       "https://placehold.co/600x400.png",
@@ -31,15 +193,744 @@
     "id": "58423",
     "title": "Housefull 5",
     "posterUrl": "https://image.tmdb.org/t/p/w185/iGvGkVOfsooO0ZBrhN5i6zXYUCy.jpg",
-    "releaseDate": "June 6, 2025",
-    "rating": 0,
+    "releaseDate": "2025",
+    "rating": 7.0,
     "genre": "Comedy",
     "director": "Tarun Mansukhani",
     "actors": "Akshay Kumar, Riteish Deshmukh",
-    "plot": "The fifth installment of the Housefull franchise, promising more confusion, chaos, and comedy.",
+    "plot": "The beloved comedy franchise returns with its fifth installment, promising another rollercoaster of laughter, confusion, and a series of hilarious mishaps with a star-studded cast.",
     "comingSoon": true,
     "language": "Hindi",
-    "quality": "N/A",
+    "quality": "HDRip",
+    "size": "N/A",
+    "screenshots": [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png"
+    ],
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
+  },
+  {
+    "id": "58895",
+    "title": "Zameen",
+    "posterUrl": "https://image.tmdb.org/t/p/w185/jAKO0Rk0Vqm1Mabi6tpFTY202hz.jpg",
+    "releaseDate": "2003",
+    "rating": 6.1,
+    "genre": "Action, Thriller",
+    "director": "Rohit Shetty",
+    "actors": "Ajay Devgn, Abhishek Bachchan, Bipasha Basu",
+    "plot": "An army officer and a police officer team up to thwart a terrorist plot to hijack a passenger plane. A high-octane thriller filled with patriotism and suspense.",
+    "comingSoon": false,
+    "language": "Hindi",
+    "quality": "WebRip",
+    "size": "N/A",
+    "screenshots": [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png"
+    ],
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
+  },
+  {
+    "id": "58878",
+    "title": "Alibaba",
+    "posterUrl": "https://image.tmdb.org/t/p/w185/dJehd1N3xXjvDeHvQwjBJemm97x.jpg",
+    "releaseDate": "2002",
+    "rating": 5.8,
+    "genre": "Fantasy, Adventure",
+    "director": "Usha Ganesar",
+    "actors": "Puneet Issar, Juhi Chawla",
+    "plot": "A fantasy adventure based on the classic tale. A poor woodcutter named Alibaba discovers a secret cave of treasures belonging to a band of forty thieves, leading to a thrilling confrontation.",
+    "comingSoon": false,
+    "language": "Hindi",
+    "quality": "WebRip",
+    "size": "N/A",
+    "screenshots": [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png"
+    ],
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
+  },
+  {
+    "id": "58874",
+    "title": "Pandavas: The Five Warriors",
+    "posterUrl": "https://m.media-amazon.com/images/M/MV5BYmI3Y2EyMWEtZWNiYi00NDE1LTg3MmUtYzM5ZjE1MDk4M2E5XkEyXkFqcGc@._V1_UY268_CR16,0,182,268_AL_.jpg",
+    "releaseDate": "2000",
+    "rating": 7.9,
+    "genre": "Animation, Mythology, Action",
+    "director": "Usha Ganesar",
+    "actors": "N/A",
+    "plot": "An animated feature film that brings the epic tale of the Mahabharata to life, focusing on the five Pandava brothers and their journey through rivalry, exile, and the great war of Kurukshetra.",
+    "comingSoon": false,
+    "language": "Hindi",
+    "quality": "WebRip",
+    "size": "N/A",
+    "screenshots": [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png"
+    ],
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
+  },
+  {
+    "id": "38534",
+    "title": "Tera Mera Saath Rahen",
+    "posterUrl": "https://image.tmdb.org/t/p/w185/rRGVO9SdoAjgDZR56WiEYWgHYB6.jpg",
+    "releaseDate": "2001",
+    "rating": 6.0,
+    "genre": "Drama, Family",
+    "director": "Mahesh Manjrekar",
+    "actors": "Ajay Devgn, Sonali Bendre, Namrata Shirodkar",
+    "plot": "A heartwarming story about a man who dedicates his life to caring for his younger brother with cerebral palsy. The film explores their unbreakable bond and the challenges they face together.",
+    "comingSoon": false,
+    "language": "Hindi",
+    "quality": "WebRip",
+    "size": "N/A",
+    "screenshots": [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png"
+    ],
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
+  },
+  {
+    "id": "58810",
+    "title": "Metro In Dino",
+    "posterUrl": "https://image.tmdb.org/t/p/w185/lErlsbrSxhUSZWIqLLctAV5VVVa.jpg",
+    "releaseDate": "2025",
+    "rating": 7.5,
+    "genre": "Romance, Drama",
+    "director": "Anurag Basu",
+    "actors": "Aditya Roy Kapur, Sara Ali Khan",
+    "plot": "An anthology film that delves into the bittersweet tales of modern-day relationships, set against the backdrop of a bustling metropolis. It explores themes of love, longing, and human connection.",
+    "comingSoon": true,
+    "language": "Hindi",
+    "quality": "WebRip",
+    "size": "N/A",
+    "screenshots": [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png"
+    ],
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
+  },
+  {
+    "id": "58817",
+    "title": "Farz",
+    "posterUrl": "https://image.tmdb.org/t/p/w185/28E8RijwmmPTPaEzoFcl738rImK.jpg",
+    "releaseDate": "2001",
+    "rating": 5.9,
+    "genre": "Action",
+    "director": "Raj Kanwar",
+    "actors": "Sunny Deol, Preity Zinta",
+    "plot": "A dedicated and tough police officer is tasked with protecting a key witness. As they go on the run from assassins, an unexpected bond forms between them.",
+    "comingSoon": false,
+    "language": "Hindi",
+    "quality": "WebRip",
+    "size": "N/A",
+    "screenshots": [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png"
+    ],
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
+  },
+  {
+    "id": "23456",
+    "title": "Ziddi",
+    "posterUrl": "https://image.tmdb.org/t/p/w185/tE7tRYO8mdRKQ36T9KbRTgZfkpf.jpg",
+    "releaseDate": "1997",
+    "rating": 6.4,
+    "genre": "Action, Drama",
+    "director": "Guddu Dhanoa",
+    "actors": "Sunny Deol, Raveena Tandon",
+    "plot": "A stubborn and hot-headed man with a strong sense of justice takes on a powerful and corrupt industrialist to protect his family and uphold the truth.",
+    "comingSoon": false,
+    "language": "Hindi",
+    "quality": "WebRip",
+    "size": "N/A",
+    "screenshots": [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png"
+    ],
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
+  },
+  {
+    "id": "19221",
+    "title": "Daag The Fire",
+    "posterUrl": "https://image.tmdb.org/t/p/w185/wtqrWRwduZaSyzcacho4HmZYiNq.jpg",
+    "releaseDate": "1999",
+    "rating": 6.2,
+    "genre": "Action, Drama",
+    "director": "Raj Kanwar",
+    "actors": "Sanjay Dutt, Mahima Chaudhry",
+    "plot": "The story of a man who is wrongly convicted and escapes from prison. He takes on a new identity to seek revenge on those who framed him, leading to a fiery confrontation.",
+    "comingSoon": false,
+    "language": "Hindi",
+    "quality": "WebRip",
+    "size": "N/A",
+    "screenshots": [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png"
+    ],
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
+  },
+  {
+    "id": "17666",
+    "title": "Haqeeqat",
+    "posterUrl": "https://image.tmdb.org/t/p/w185/qU4Ru7mvaT2jVeYc5wGBAxclN7b.jpg",
+    "releaseDate": "1995",
+    "rating": 6.7,
+    "genre": "Action, Drama",
+    "director": "Kuku Kohli",
+    "actors": "Ajay Devgn, Tabu",
+    "plot": "A man's life is turned upside down when he is framed for the murder of his sister-in-law. He must uncover the truth and expose the real culprits to clear his name.",
+    "comingSoon": false,
+    "language": "Hindi",
+    "quality": "WebRip",
+    "size": "N/A",
+    "screenshots": [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png"
+    ],
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
+  },
+  {
+    "id": "58801",
+    "title": "Arjun Pandit",
+    "posterUrl": "https://image.tmdb.org/t/p/w185/qUbfKDqTKlNlVAZXjxMOl6CUO87.jpg",
+    "releaseDate": "1999",
+    "rating": 6.5,
+    "genre": "Action, Thriller",
+    "director": "Rahul Rawail",
+    "actors": "Sunny Deol, Juhi Chawla",
+    "plot": "A simple professor is manipulated by a woman into becoming a feared gangster. As he gets drawn deeper into the criminal underworld, he must find a way to reclaim his life.",
+    "comingSoon": false,
+    "language": "Hindi",
+    "quality": "WebRip",
+    "size": "N/A",
+    "screenshots": [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png"
+    ],
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
+  },
+  {
+    "id": "58706",
+    "title": "Maa",
+    "posterUrl": "https://image.tmdb.org/t/p/w185/kc5n7LJUmvBsVxzAla1ONN8kouP.jpg",
+    "releaseDate": "2025",
+    "rating": 7.1,
+    "genre": "Drama, Family",
+    "director": "N/A",
+    "actors": "N/A",
+    "plot": "An emotional drama that celebrates the unconditional love and sacrifices of a mother. The story revolves around the powerful bond between a mother and her child through various stages of life.",
+    "comingSoon": true,
+    "language": "Hindi",
+    "quality": "HDTC",
+    "size": "N/A",
+    "screenshots": [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png"
+    ],
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
+  },
+  {
+    "id": "58792",
+    "title": "Pune Highway",
+    "posterUrl": "https://image.tmdb.org/t/p/w185/sOfh4btubHjkpfoDbwCR5pguJwu.jpg",
+    "releaseDate": "2025",
+    "rating": 6.6,
+    "genre": "Thriller, Drama",
+    "director": "N/A",
+    "actors": "N/A",
+    "plot": "A gripping thriller set on the Pune highway, where a chance encounter between strangers leads to a series of unexpected and dangerous events.",
+    "comingSoon": true,
+    "language": "Hindi",
+    "quality": "WebRip",
+    "size": "N/A",
+    "screenshots": [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png"
+    ],
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
+  },
+  {
+    "id": "58783",
+    "title": "Kaalidhar Laapata",
+    "posterUrl": "https://image.tmdb.org/t/p/w185/a7ctu6C6f7tN87ve4HFDoELp7cH.jpg",
+    "releaseDate": "2025",
+    "rating": 6.4,
+    "genre": "Mystery, Thriller",
+    "director": "N/A",
+    "actors": "N/A",
+    "plot": "A mystery that follows the sudden disappearance of a man named Kaalidhar. As the investigation unfolds, dark secrets and hidden motives are revealed.",
+    "comingSoon": true,
+    "language": "Hindi",
+    "quality": "WebRip",
+    "size": "N/A",
+    "screenshots": [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png"
+    ],
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
+  },
+  {
+    "id": "58780",
+    "title": "Kiss Ka Call",
+    "posterUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSrOJeAhmJRmWkUjU5u7R53j8QUBfxYngtEFQ&s",
+    "releaseDate": "2025",
+    "rating": 5.5,
+    "genre": "Comedy, Romance",
+    "director": "N/A",
+    "actors": "N/A",
+    "plot": "A romantic comedy centered around a mysterious phone call that turns the protagonist's life upside down, leading to a series of hilarious mix-ups and an unexpected romance.",
+    "comingSoon": true,
+    "language": "Hindi",
+    "quality": "WebRip",
+    "size": "N/A",
+    "screenshots": [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png"
+    ],
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
+  },
+  {
+    "id": "58388",
+    "title": "Thug Life",
+    "posterUrl": "https://image.tmdb.org/t/p/w185/DmBbUtbA3T9sdVXDgIJ8bsIDw0.jpg",
+    "releaseDate": "2025",
+    "rating": 8.0,
+    "genre": "Action, Drama",
+    "director": "Mani Ratnam",
+    "actors": "Kamal Haasan, Trisha Krishnan",
+    "plot": "An epic action-drama that follows the journey of a man navigating the gritty underworld. The film explores themes of power, betrayal, and survival in a world where only the strong survive.",
+    "comingSoon": true,
+    "language": "Tamil",
+    "quality": "WebRip",
+    "size": "N/A",
+    "screenshots": [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png"
+    ],
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
+  },
+  {
+    "id": "58704",
+    "title": "Kannappa",
+    "posterUrl": "https://image.tmdb.org/t/p/w185/6LhE7IwhXgaNi33l0ltYahIB91i.jpg",
+    "releaseDate": "2025",
+    "rating": 8.2,
+    "genre": "Action, Mythology, Drama",
+    "director": "Mukesh Kumar Singh",
+    "actors": "Prabhas, Akshay Kumar, Vishnu Manchu",
+    "plot": "A mythological epic based on the life of Kannappa, a devout follower of Lord Shiva. The film showcases his unwavering faith and the ultimate sacrifice he makes to prove his devotion.",
+    "comingSoon": true,
+    "language": "Hindi",
+    "quality": "HDTC",
+    "size": "N/A",
+    "screenshots": [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png"
+    ],
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
+  },
+  {
+    "id": "57932",
+    "title": "Raid 2",
+    "posterUrl": "https://image.tmdb.org/t/p/w185/fzVbLi9PPKMOFtJMnVHKfcRVRTm.jpg",
+    "releaseDate": "2025",
+    "rating": 7.6,
+    "genre": "Action, Crime, Thriller",
+    "director": "Raj Kumar Gupta",
+    "actors": "Ajay Devgn, Vaani Kapoor",
+    "plot": "The sequel to the hit crime thriller. A fearless income tax officer returns to conduct another high-stakes raid against a powerful and corrupt figure, facing even greater challenges and dangers.",
+    "comingSoon": true,
+    "language": "Hindi",
+    "quality": "WebRip",
+    "size": "N/A",
+    "screenshots": [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png"
+    ],
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
+  },
+  {
+    "id": "58680",
+    "title": "Yadon Ki Kasam",
+    "posterUrl": "https://image.tmdb.org/t/p/w185/lcJiRh0ilUQUQTnq0gqNWMTYFnD.jpg",
+    "releaseDate": "1985",
+    "rating": 6.1,
+    "genre": "Romance, Drama",
+    "director": "Vinod Dewan",
+    "actors": "Mithun Chakraborty, Zeenat Aman",
+    "plot": "A romantic drama about two lovers who are separated by circumstances. They make a vow to reunite, and the story follows their journey as they navigate life's challenges to keep their promise.",
+    "comingSoon": false,
+    "language": "Hindi",
+    "quality": "WebRip",
+    "size": "N/A",
+    "screenshots": [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png"
+    ],
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
+  },
+  {
+    "id": "20411",
+    "title": "Tell Me O Kkhuda",
+    "posterUrl": "https://image.tmdb.org/t/p/w185/xTkh2sPbQjKxj0QblitCr0wBdvV.jpg",
+    "releaseDate": "2011",
+    "rating": 4.5,
+    "genre": "Drama, Family",
+    "director": "Hema Malini",
+    "actors": "Esha Deol, Arjan Bajwa, Dharmendra",
+    "plot": "A young woman embarks on a journey to find her biological parents after learning she was adopted. Her quest takes her across different countries, uncovering family secrets along the way.",
+    "comingSoon": false,
+    "language": "Hindi",
+    "quality": "WebRip",
+    "size": "N/A",
+    "screenshots": [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png"
+    ],
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
+  },
+  {
+    "id": "58673",
+    "title": "Rangrezz",
+    "posterUrl": "https://image.tmdb.org/t/p/w185/r3heuEPCiyT4SyXjP2zfB5J5uPV.jpg",
+    "releaseDate": "2013",
+    "rating": 6.3,
+    "genre": "Action, Drama",
+    "director": "Priyadarshan",
+    "actors": "Jackky Bhagnani, Priya Anand",
+    "plot": "The story of a young man who helps his friend elope with his lover, only to face dire consequences that test his loyalty, friendship, and understanding of life.",
+    "comingSoon": false,
+    "language": "Hindi",
+    "quality": "WebRip",
+    "size": "N/A",
+    "screenshots": [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png"
+    ],
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
+  },
+  {
+    "id": "16965",
+    "title": "Radio",
+    "posterUrl": "https://image.tmdb.org/t/p/w185/whHPB7QsMbKVqyJwEKTMRiVKQXg.jpg",
+    "releaseDate": "2009",
+    "rating": 4.8,
+    "genre": "Romance, Musical",
+    "director": "Isshaan Trivedi",
+    "actors": "Himesh Reshammiya, Shenaz Treasury",
+    "plot": "A popular radio jockey navigates the complexities of love and relationships after his divorce. The film explores his emotional journey as he finds himself caught between his ex-wife and a new love interest.",
+    "comingSoon": false,
+    "language": "Hindi",
+    "quality": "WebRip",
+    "size": "N/A",
+    "screenshots": [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png"
+    ],
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
+  },
+  {
+    "id": "35071",
+    "title": "Pukar",
+    "posterUrl": "https://image.tmdb.org/t/p/w185/vMQLv1fQfPrLBilk8EEv9TrbVjA.jpg",
+    "releaseDate": "1983",
+    "rating": 6.5,
+    "genre": "Action, Crime",
+    "director": "Ramesh Behl",
+    "actors": "Amitabh Bachchan, Zeenat Aman",
+    "plot": "A freedom fighter's son is mistaken for a criminal and must go on the run. He works to clear his name while fighting against the forces that seek to destroy his family's legacy.",
+    "comingSoon": false,
+    "language": "Hindi",
+    "quality": "WebRip",
+    "size": "N/A",
+    "screenshots": [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png"
+    ],
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
+  },
+  {
+    "id": "29305",
+    "title": "Madhumati",
+    "posterUrl": "https://image.tmdb.org/t/p/w185/vrrQ69whukrcuuFi7Oo7PjBaJ2K.jpg",
+    "releaseDate": "1958",
+    "rating": 7.4,
+    "genre": "Mystery, Romance, Horror",
+    "director": "Bimal Roy",
+    "actors": "Dilip Kumar, Vyjayanthimala",
+    "plot": "A classic gothic romance involving reincarnation. A man seeking shelter in an old mansion is haunted by visions of a past life, uncovering a tragic love story and a tale of betrayal.",
+    "comingSoon": false,
+    "language": "Hindi",
+    "quality": "WebRip",
+    "size": "N/A",
+    "screenshots": [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png"
+    ],
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
+  },
+  {
+    "id": "2266",
+    "title": "Buddha in a Traffic Jam",
+    "posterUrl": "https://image.tmdb.org/t/p/w185/bAia8POGJHaSLL9RCdo99ZNClKG.jpg",
+    "releaseDate": "2016",
+    "rating": 7.1,
+    "genre": "Drama, Political",
+    "director": "Vivek Agnihotri",
+    "actors": "Arunoday Singh, Mahie Gill, Anupam Kher",
+    "plot": "A political thriller that explores the clash of ideologies within a university. A student gets entangled in a web of politics involving professors, activists, and naxalites.",
+    "comingSoon": false,
+    "language": "Hindi",
+    "quality": "WebRip",
+    "size": "N/A",
+    "screenshots": [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png"
+    ],
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
+  },
+  {
+    "id": "58664",
+    "title": "Bade Ghar Ki Beti",
+    "posterUrl": "https://image.tmdb.org/t/p/w185/jHf44xkb3iokH5Gh4A0FzZMgoxj.jpg",
+    "releaseDate": "1989",
+    "rating": 6.8,
+    "genre": "Drama, Family",
+    "director": "Kalpataru",
+    "actors": "Rishi Kapoor, Meenakshi Seshadri",
+    "plot": "A family drama about a woman from a wealthy family who marries into a middle-class household. She must navigate the challenges of adjusting to a new lifestyle and winning over her in-laws.",
+    "comingSoon": false,
+    "language": "Hindi",
+    "quality": "WebRip",
+    "size": "N/A",
+    "screenshots": [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png"
+    ],
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
+  },
+  {
+    "id": "13090",
+    "title": "CRD",
+    "posterUrl": "https://image.tmdb.org/t/p/w185/6yu0G5IIgZL1o6tx4xUVX1YbpPg.jpg",
+    "releaseDate": "2016",
+    "rating": 6.9,
+    "genre": "Drama",
+    "director": "Krantidar Oza",
+    "actors": "Mrinmayee Godbole, Vinay Sharma",
+    "plot": "An unconventional drama that follows a group of young theater artists who rebel against their authoritarian professor to create their own play, exploring themes of creativity, freedom, and artistic expression.",
+    "comingSoon": false,
+    "language": "Hindi",
+    "quality": "WebRip",
+    "size": "N/A",
+    "screenshots": [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png"
+    ],
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
+  },
+  {
+    "id": "48607",
+    "title": "Brahman Naman",
+    "posterUrl": "https://image.tmdb.org/t/p/w185/4h9Pn8gcyOk3ziqVXmI0amu6uOB.jpg",
+    "releaseDate": "2016",
+    "rating": 5.7,
+    "genre": "Comedy",
+    "director": "Qaushiq Mukherjee",
+    "actors": "Shashank Arora, Tanmay Dhanania",
+    "plot": "A coming-of-age sex comedy set in the 1980s. A group of nerdy, sexually frustrated college quizzers are determined to lose their virginity while trying to win a national quiz competition.",
+    "comingSoon": false,
+    "language": "English",
+    "quality": "WebRip",
     "size": "N/A",
     "screenshots": [
       "https://placehold.co/600x400.png",
@@ -58,43 +949,16 @@
     "id": "52099",
     "title": "Ishq Vishk Rebound",
     "posterUrl": "https://image.tmdb.org/t/p/w185/bJ9fGn0t9XO2Mjz1P05OQh76AaI.jpg",
-    "releaseDate": "June 21, 2024",
+    "releaseDate": "2024",
     "rating": 6.8,
     "genre": "Romance, Comedy",
     "director": "Nipun Dharmadhikari",
     "actors": "Rohit Saraf, Pashmina Roshan, Jibraan Khan",
-    "plot": "A modern take on young love, friendships, and heartbreaks in the age of social media.",
+    "plot": "A modern take on young love, friendships, and heartbreaks in the age of social media. The film explores the journey of three friends as they navigate relationships and rebounds.",
     "comingSoon": false,
     "language": "Hindi",
-    "quality": "1080p WEB-DL",
-    "size": "2.1GB",
-     "screenshots": [
-      "https://placehold.co/600x400.png",
-      "https://placehold.co/600x400.png",
-      "https://placehold.co/600x400.png",
-      "https://placehold.co/600x400.png"
-    ],
-    "streamUrl": "",
-    "downloadLinks": {
-      "480p": "",
-      "720p": "",
-      "1080p": ""
-    }
-  },
-  {
-    "id": "43013",
-    "title": "Rocket Gang",
-    "posterUrl": "https://image.tmdb.org/t/p/w185/8icRtVuWUDvBITWCeMBmRTL8chu.jpg",
-    "releaseDate": "November 11, 2022",
-    "rating": 5.4,
-    "genre": "Comedy, Horror",
-    "director": "Bosco Martis",
-    "actors": "Aditya Seal, Nikita Dutta",
-    "plot": "A group of friends decides to vacation at a spooky, isolated resort and soon find themselves in the midst of a supernatural entity.",
-    "comingSoon": false,
-    "language": "Hindi",
-    "quality": "720p WEB-DL",
-    "size": "1.2GB",
+    "quality": "WebRip",
+    "size": "N/A",
     "screenshots": [
       "https://placehold.co/600x400.png",
       "https://placehold.co/600x400.png",
@@ -109,19 +973,100 @@
     }
   },
   {
-    "id": "19221",
-    "title": "Daag: The Fire",
-    "posterUrl": "https://image.tmdb.org/t/p/w185/wtqrWRwduZaSyzcacho4HmZYiNq.jpg",
-    "releaseDate": "February 12, 1999",
+    "id": "58616",
+    "title": "Sitaare Zameen Par",
+    "posterUrl": "https://image.tmdb.org/t/p/w185/2ztRFbp1YSvMSIrr7AqYq6i6pqC.jpg",
+    "releaseDate": "2025",
+    "rating": 8.5,
+    "genre": "Drama, Family",
+    "director": "Aamir Khan",
+    "actors": "Aamir Khan, Genelia D'Souza",
+    "plot": "Following the themes of 'Taare Zameen Par,' this film explores the journey of a group of individuals with disabilities who find purpose and joy through sports, celebrating the human spirit and resilience.",
+    "comingSoon": true,
+    "language": "Hindi",
+    "quality": "HDTC",
+    "size": "N/A",
+    "screenshots": [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png"
+    ],
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
+  },
+  {
+    "id": "58599",
+    "title": "Detective Sherdil",
+    "posterUrl": "https://image.tmdb.org/t/p/w185/qk1bh98lYQAHzff8RIASinOrauL.jpg",
+    "releaseDate": "2025",
+    "rating": 7.0,
+    "genre": "Comedy, Mystery",
+    "director": "N/A",
+    "actors": "N/A",
+    "plot": "A quirky and unconventional detective with a heart of gold takes on a mysterious case. A blend of comedy and suspense as he uses his unique methods to solve the crime.",
+    "comingSoon": true,
+    "language": "Hindi",
+    "quality": "WebRip",
+    "size": "N/A",
+    "screenshots": [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png"
+    ],
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
+  },
+  {
+    "id": "58582",
+    "title": "Umar 55 Ki Dil Bachpan Ka",
+    "posterUrl": "https://image.tmdb.org/t/p/w185/9v8HxMESzv0mv8YBMN7LSei6Ftn.jpg",
+    "releaseDate": "1992",
     "rating": 6.2,
-    "genre": "Action, Drama",
-    "director": "Raj Kanwar",
-    "actors": "Sanjay Dutt, Chandrachur Singh, Mahima Chaudhry",
-    "plot": "A man is forced to lead a dual life as a criminal and a law-abiding citizen after being framed for a crime he didn't commit.",
+    "genre": "Comedy, Drama",
+    "director": "Kader Khan",
+    "actors": "Kader Khan, Anupam Kher",
+    "plot": "A comedy about a group of elderly friends who decide to live life to the fullest, revisiting their youth and getting into hilarious situations, proving that age is just a number.",
     "comingSoon": false,
     "language": "Hindi",
-    "quality": "1080p BluRay",
-    "size": "3.0GB",
+    "quality": "WebRip",
+    "size": "N/A",
+    "screenshots": [
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png",
+      "https://placehold.co/600x400.png"
+    ],
+    "streamUrl": "",
+    "downloadLinks": {
+      "480p": "",
+      "720p": "",
+      "1080p": ""
+    }
+  },
+  {
+    "id": "58580",
+    "title": "Tumhare Liye",
+    "posterUrl": "https://image.tmdb.org/t/p/w185/8J2wTY2U5Sg6imKGxTZtdPQ4NiK.jpg",
+    "releaseDate": "1978",
+    "rating": 6.5,
+    "genre": "Drama, Fantasy, Romance",
+    "director": "Basu Chatterjee",
+    "actors": "Sanjeev Kumar, Vidya Sinha",
+    "plot": "A story of reincarnation and eternal love. A couple's love story is cut short by tragedy, but they are reborn to find each other again, facing new challenges that test their bond.",
+    "comingSoon": false,
+    "language": "Hindi",
+    "quality": "WebRip",
+    "size": "N/A",
     "screenshots": [
       "https://placehold.co/600x400.png",
       "https://placehold.co/600x400.png",
