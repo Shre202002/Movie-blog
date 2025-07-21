@@ -19,7 +19,7 @@ export function MovieCard({ movie }: { movie: Movie }) {
               className="object-cover"
               data-ai-hint="movie poster"
             />
-            <Badge variant="default" className="absolute top-2 right-2 rounded-sm text-xs">
+            <Badge variant="default" className="absolute top-2 right-2 rounded-sm text-xs bg-accent text-accent-foreground hover:bg-accent/80">
               {movie.quality}
             </Badge>
              <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
