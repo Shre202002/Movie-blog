@@ -1,5 +1,6 @@
 import { Suspense } from 'react';
 import Image from 'next/image';
+import Link from 'next/link';
 import { getMovieById } from '@/lib/data';
 import type { Movie } from '@/lib/types';
 import { generateMovieSummary } from '@/ai/flows/generate-movie-summary';
@@ -7,7 +8,26 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Button } from '@/components/ui/button';
-import { DownloadCloud, Clapperboard, Film, Calendar, User, Languages, Tv, Star, Camera, PlayCircle } from 'lucide-react';
+import { DownloadCloud, Clapperboard, Film, Calendar, User, Languages, Tv, Star, Camera, PlayCircle, ChevronRight } from 'lucide-react';
+
+function Breadcrumb({ movieTitle }: { movieTitle: string }) {
+    return (
+        <nav aria-label="breadcrumb" className="mb-6">
+            <ol className="flex items-center space-x-2 text-sm text-muted-foreground">
+                <li>
+                    <Link href="/" className="hover:text-primary transition-colors">Home</Link>
+                </li>
+                <li>
+                    <ChevronRight className="h-4 w-4" />
+                </li>
+                <li>
+                    <span className="font-medium text-foreground">{movieTitle}</span>
+                </li>
+            </ol>
+        </nav>
+    );
+}
+
 
 async function AiPoweredSummary({ movie }: { movie: Movie }) {
   const summaryResult = await generateMovieSummary({
@@ -158,6 +178,7 @@ export default async function MovieDetailsPage({ params }: { params: { id: strin
 
   return (
     <main className="container mx-auto px-4 py-8">
+      <Breadcrumb movieTitle={movie.title} />
       <h1 className="text-3xl lg:text-4xl font-bold font-headline text-primary mb-6 text-center">{movie.title}</h1>
       <div className="grid md:grid-cols-3 gap-8 lg:gap-12">
         <div className="md:col-span-1">
