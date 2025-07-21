@@ -24,6 +24,10 @@ export function MovieCard({ movie }: { movie: Movie }) {
               className="object-cover"
               data-ai-hint="movie poster"
             />
+            <div className="absolute top-2 left-2 flex items-center gap-1.5 rounded-full bg-black/70 px-2 py-1 text-xs font-semibold text-white">
+                <Star className="w-3 h-3 text-accent fill-accent" />
+                <span>{movie.rating ? movie.rating.toFixed(1) : 'N/A'}</span>
+            </div>
             <Badge variant="default" className="absolute top-2 right-2 rounded-sm text-xs bg-accent text-accent-foreground hover:bg-accent/80">
               {movie.quality}
             </Badge>
@@ -33,11 +37,7 @@ export function MovieCard({ movie }: { movie: Movie }) {
         <div className="p-4 flex flex-col flex-grow">
             <CardTitle className="font-headline text-lg text-foreground truncate">{movie.title}</CardTitle>
             <div className="text-sm text-muted-foreground mt-1">{displayYear}</div>
-            <CardFooter className="p-0 pt-4 mt-auto flex justify-between items-center">
-                <div className="flex items-center gap-1.5 text-foreground font-semibold">
-                    <Star className="w-4 h-4 text-accent fill-accent" />
-                    <span>{movie.rating ? movie.rating.toFixed(1) : 'N/A'}</span>
-                </div>
+            <CardFooter className="p-0 pt-4 mt-auto">
                 <Badge variant="secondary" className="truncate">{movie.genre && movie.genre[0]}</Badge>
             </CardFooter>
         </div>
