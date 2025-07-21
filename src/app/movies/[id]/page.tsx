@@ -118,10 +118,8 @@ function DownloadLinks({ links }: { links: { quality: string, url: string }[] })
             </h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                 {links.map((link, index) => (
-                     <Button key={index} asChild size="lg">
-                        <a href={link.url} target="_blank" rel="noopener noreferrer">
-                           Download in {link.quality}
-                        </a>
+                     <Button key={index} size="lg" disabled>
+                        Download in {link.quality}
                     </Button>
                 ))}
             </div>
