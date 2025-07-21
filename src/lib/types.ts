@@ -9,4 +9,12 @@ export interface Movie {
   actors: string;
   plot: string;
   comingSoon: boolean;
+  language: string;
+  quality: string;
+  size: string;
+  screenshots: string[];
+  downloadLinks: {
+    quality: string;
+    url: string;
+  }[];
 }
