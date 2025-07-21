@@ -1,0 +1,122 @@
+[
+  {
+    "id": "1",
+    "title": "Inception",
+    "posterUrl": "https://placehold.co/400x600.png",
+    "releaseDate": "July 16, 2010",
+    "rating": 8.8,
+    "genre": "Sci-Fi, Thriller",
+    "director": "Christopher Nolan",
+    "actors": "Leonardo DiCaprio, Joseph Gordon-Levitt, Elliot Page",
+    "plot": "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
+    "comingSoon": false
+  },
+  {
+    "id": "2",
+    "title": "The Matrix",
+    "posterUrl": "https://placehold.co/400x600.png",
+    "releaseDate": "March 31, 1999",
+    "rating": 8.7,
+    "genre": "Action, Sci-Fi",
+    "director": "Lana Wachowski, Lilly Wachowski",
+    "actors": "Keanu Reeves, Laurence Fishburne, Carrie-Anne Moss",
+    "plot": "A computer hacker learns from mysterious rebels about the true nature of his reality and his role in the war against its controllers.",
+    "comingSoon": false
+  },
+  {
+    "id": "3",
+    "title": "Interstellar",
+    "posterUrl": "https://placehold.co/400x600.png",
+    "releaseDate": "November 7, 2014",
+    "rating": 8.6,
+    "genre": "Sci-Fi, Drama",
+    "director": "Christopher Nolan",
+    "actors": "Matthew McConaughey, Anne Hathaway, Jessica Chastain",
+    "plot": "A team of explorers travel through a wormhole in space in an attempt to ensure humanity's survival.",
+    "comingSoon": false
+  },
+  {
+    "id": "4",
+    "title": "Parasite",
+    "posterUrl": "https://placehold.co/400x600.png",
+    "releaseDate": "October 11, 2019",
+    "rating": 8.6,
+    "genre": "Thriller, Comedy, Drama",
+    "director": "Bong Joon Ho",
+    "actors": "Song Kang-ho, Lee Sun-kyun, Cho Yeo-jeong",
+    "plot": "Greed and class discrimination threaten the newly formed symbiotic relationship between the wealthy Park family and the destitute Kim clan.",
+    "comingSoon": false
+  },
+  {
+    "id": "5",
+    "title": "Dune: Part Two",
+    "posterUrl": "https://placehold.co/400x600.png",
+    "releaseDate": "March 1, 2024",
+    "rating": 8.9,
+    "genre": "Sci-Fi, Adventure",
+    "director": "Denis Villeneuve",
+    "actors": "Timothée Chalamet, Zendaya, Rebecca Ferguson",
+    "plot": "Paul Atreides unites with Chani and the Fremen while seeking revenge against the conspirators who destroyed his family.",
+    "comingSoon": false
+  },
+  {
+    "id": "6",
+    "title": "Blade Runner 2049",
+    "posterUrl": "https://placehold.co/400x600.png",
+    "releaseDate": "October 6, 2017",
+    "rating": 8.0,
+    "genre": "Sci-Fi, Thriller",
+    "director": "Denis Villeneuve",
+    "actors": "Ryan Gosling, Harrison Ford, Ana de Armas",
+    "plot": "Young Blade Runner K's discovery of a long-buried secret leads him to track down former Blade Runner Rick Deckard, who's been missing for thirty years.",
+    "comingSoon": false
+  },
+  {
+    "id": "7",
+    "title": "Mad Max: Fury Road",
+    "posterUrl": "https://placehold.co/400x600.png",
+    "releaseDate": "May 15, 2015",
+    "rating": 8.1,
+    "genre": "Action, Adventure, Sci-Fi",
+    "director": "George Miller",
+    "actors": "Tom Hardy, Charlize Theron, Nicholas Hoult",
+    "plot": "In a post-apocalyptic wasteland, a woman rebels against a tyrannical ruler in search for her homeland with the help of a group of female prisoners, a psychotic worshiper, and a drifter named Max.",
+    "comingSoon": false
+  },
+  {
+    "id": "8",
+    "title": "Cybernetic Dawn",
+    "posterUrl": "https://placehold.co/400x600.png",
+    "releaseDate": "December 25, 2025",
+    "rating": 0,
+    "genre": "Sci-Fi, Action",
+    "director": "Alex Proyas",
+    "actors": "John Doe, Jane Smith",
+    "plot": "In a future dominated by AI, a small group of rebels fights to reclaim human consciousness.",
+    "comingSoon": true
+  },
+  {
+    "id": "9",
+    "title": "Ocean's Echo",
+    "posterUrl": "https://placehold.co/400x600.png",
+    "releaseDate": "November 12, 2025",
+    "rating": 0,
+    "genre": "Mystery, Thriller",
+    "director": "Jane Campion",
+    "actors": "Emily Blunt, Chris Evans",
+    "plot": "A deep-sea biologist discovers a mysterious signal from the Marianas Trench that could change our understanding of life on Earth.",
+    "comingSoon": true
+  },
+  {
+    "id": "10",
+    "title": "The Last Nomad",
+    "posterUrl": "https://placehold.co/400x600.png",
+    "releaseDate": "October 1, 2025",
+    "rating": 0,
+    "genre": "Drama, Adventure",
+    "director": "Chloé Zhao",
+    "actors": "Tilda Swinton, Dev Patel",
+    "plot": "After a global catastrophe, a lone survivor journeys across a desolate America, searching for a rumored sanctuary.",
+    "comingSoon": true
+  }
+]
