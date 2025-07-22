@@ -1,6 +1,6 @@
 
 
-import { getMovieBySlug, getSimilarMovies } from '@/lib/data';
+import { getMovieBySlug, getSimilarMovies, getMovieById } from '@/lib/data';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -14,7 +14,7 @@ import { MovieList } from '@/components/movie-list';
 
 
 export default async function MovieDetailsPage({ params }: { params: { slug: string } }) {
-  const movie = await getMovieBySlug(params.slug);
+  const movie = await getMovieById(params.slug);
 
   if (!movie) {
     notFound();

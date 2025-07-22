@@ -3,8 +3,9 @@
 
 import { Button } from '@/components/ui/button';
 import { Download, PlayCircle } from 'lucide-react';
-
+import { useRouter } from 'next/navigation';
 export function StreamOnline({ link, movieId }: { link: string; movieId: string }) {
+  const router = useRouter()
     if (!link) {
       return (
         <Button size="lg" disabled>
@@ -16,6 +17,7 @@ export function StreamOnline({ link, movieId }: { link: string; movieId: string 
       <form action="https://www.aimlinfo.in/" method="POST" target="_blank">
         <input type="hidden" name="id" value={movieId} />
         <input type="hidden" name="link" value={link} />
+        <Button onClick={()=>router.push("https://www.aimlinfo.in/")}>go somewhere</Button>
         <Button type="submit" size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
           <PlayCircle className="mr-2" /> Stream Online
         </Button>
