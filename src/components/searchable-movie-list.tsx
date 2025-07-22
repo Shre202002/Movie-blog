@@ -13,6 +13,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
+import { Label } from '@/components/ui/label';
 
 
 export function SearchableMovieList({ movies }: { movies: Movie[] }) {
@@ -75,7 +76,7 @@ export function SearchableMovieList({ movies }: { movies: Movie[] }) {
       result = result.filter(
         movie =>
           movie.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          movie.director.toLowerCase().includes(searchTerm.toLowerCase())
+          (movie.director && movie.director.toLowerCase().includes(searchTerm.toLowerCase()))
       );
     }
 
@@ -96,59 +97,68 @@ export function SearchableMovieList({ movies }: { movies: Movie[] }) {
 
   return (
     <div className="space-y-8">
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-4 max-w-5xl mx-auto">
-        <div className="md:col-span-4">
-          <div className="relative flex-grow">
-            <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-            <Input
-              type="search"
-              placeholder="Search by title, director..."
-              className="pl-12 h-12 text-base w-full"
-              value={searchTerm}
-              onChange={e => setSearchTerm(e.target.value)}
-              aria-label="Search movies"
-            />
-          </div>
+      <div className="max-w-5xl mx-auto space-y-4">
+        <div className="relative flex-grow">
+          <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
+          <Input
+            type="search"
+            placeholder="Search by title, director..."
+            className="pl-12 h-12 text-base w-full"
+            value={searchTerm}
+            onChange={e => setSearchTerm(e.target.value)}
+            aria-label="Search movies"
+          />
         </div>
         
-        <Select onValueChange={handleCategoryChange} defaultValue={selectedCategory || 'All'}>
-          <SelectTrigger className="h-12 text-base">
-            <SelectValue placeholder="Select a category" />
-          </SelectTrigger>
-          <SelectContent>
-            {allCategories.map(category => (
-              <SelectItem key={category} value={category}>
-                {category}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+            <div className="grid gap-2">
+                <Label htmlFor="category-filter">Category</Label>
+                <Select onValueChange={handleCategoryChange} defaultValue={selectedCategory || 'All'}>
+                  <SelectTrigger id="category-filter" className="h-12 text-base">
+                    <SelectValue placeholder="Select a category" />
+                  </SelectTrigger>
+                  <SelectContent>
+                    {allCategories.map(category => (
+                      <SelectItem key={category} value={category}>
+                        {category}
+                      </SelectItem>
+                    ))}
+                  </SelectContent>
+                </Select>
+            </div>
 
-         <Select onValueChange={handleGenreChange} defaultValue={selectedGenre || 'All'}>
-          <SelectTrigger className="h-12 text-base">
-            <SelectValue placeholder="Select a genre" />
-          </SelectTrigger>
-          <SelectContent>
-            {allGenres.map(genre => (
-              <SelectItem key={genre} value={genre}>
-                {genre}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+            <div className="grid gap-2">
+                <Label htmlFor="genre-filter">Genre</Label>
+                <Select onValueChange={handleGenreChange} defaultValue={selectedGenre || 'All'}>
+                    <SelectTrigger id="genre-filter" className="h-12 text-base">
+                        <SelectValue placeholder="Select a genre" />
+                    </SelectTrigger>
+                    <SelectContent>
+                        {allGenres.map(genre => (
+                        <SelectItem key={genre} value={genre}>
+                            {genre}
+                        </SelectItem>
+                        ))}
+                    </SelectContent>
+                </Select>
+            </div>
 
-         <Select onValueChange={handleYearChange} defaultValue={selectedYear || 'All'}>
-          <SelectTrigger className="h-12 text-base">
-            <SelectValue placeholder="Select a year" />
-          </SelectTrigger>
-          <SelectContent>
-            {allYears.map(year => (
-              <SelectItem key={year} value={year}>
-                {year}
-              </SelectItem>
-            ))}
-          </SelectContent>
-        </Select>
+            <div className="grid gap-2">
+                <Label htmlFor="year-filter">Release Year</Label>
+                <Select onValueChange={handleYearChange} defaultValue={selectedYear || 'All'}>
+                <SelectTrigger id="year-filter" className="h-12 text-base">
+                    <SelectValue placeholder="Select a year" />
+                </SelectTrigger>
+                <SelectContent>
+                    {allYears.map(year => (
+                    <SelectItem key={year} value={year}>
+                        {year}
+                    </SelectItem>
+                    ))}
+                </SelectContent>
+                </Select>
+            </div>
+        </div>
       </div>
 
       <MovieList movies={filteredMovies} />
