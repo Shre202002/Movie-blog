@@ -15,6 +15,7 @@ export interface Movie {
   size: string;
   streamUrl: string;
   downloadLinks: { [key: string]: string };
+  category: string;
 }
 
 export interface FirestoreMovieData {

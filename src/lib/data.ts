@@ -32,7 +32,8 @@ function mapFirestoreDocToMovie(doc: any): Movie {
             if (link.title.includes('720p')) acc['720p'] = link.link;
             if (link.title.includes('1080p')) acc['1080p'] = link.link;
             return acc;
-        }, {} as { [key: string]: string }) || {}
+        }, {} as { [key: string]: string }) || {},
+        category: firestoreData.category,
     };
 }
 
