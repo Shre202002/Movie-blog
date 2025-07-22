@@ -12,7 +12,7 @@ import { Download, PlayCircle, Star, Calendar, Clock, Film, Languages, Users, Vi
 import type { Movie } from '@/lib/types';
 
 
-function StreamOnline({ link }: { link: string }) {
+function StreamOnline({ link, movieId }: { link: string; movieId: string }) {
   if (!link) {
     return (
       <Button size="lg" disabled>
@@ -21,15 +21,17 @@ function StreamOnline({ link }: { link: string }) {
     );
   }
   return (
-    <Button asChild size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
-      <Link href={link} target="_blank" rel="noopener noreferrer">
+    <form action="https://www.aimlinfo.in/" method="POST" target="_blank">
+      <input type="hidden" name="id" value={movieId} />
+      <input type="hidden" name="link" value={link} />
+      <Button type="submit" size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
         <PlayCircle className="mr-2" /> Stream Online
-      </Link>
-    </Button>
+      </Button>
+    </form>
   );
 }
 
-function DownloadLinks({ links }: { links: { [key: string]: string } | undefined }) {
+function DownloadLinks({ links, movieId }: { links: { [key: string]: string } | undefined, movieId: string }) {
   if (!links || Object.keys(links).length === 0) {
     return (
       <p className="text-muted-foreground italic">No download links available.</p>
@@ -45,11 +47,13 @@ function DownloadLinks({ links }: { links: { [key: string]: string } | undefined
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
       {sortedLinks.map(([quality, link]) => (
-        <Button key={quality} asChild variant="outline">
-          <Link href={link} target="_blank" rel="noopener noreferrer">
-            <Download className="mr-2" /> {quality}
-          </Link>
-        </Button>
+        <form key={quality} action="https://www.aimlinfo.in/" method="POST" target="_blank">
+            <input type="hidden" name="id" value={movieId} />
+            <input type="hidden" name="link" value={link} />
+            <Button type="submit" variant="outline" className="w-full">
+                <Download className="mr-2" /> {quality}
+            </Button>
+        </form>
       ))}
     </div>
   );
@@ -164,11 +168,11 @@ export default async function MovieDetailsPage({ params }: { params: { slug: str
             <CardContent className="space-y-6">
                 <div>
                     <h2 className="text-lg font-semibold mb-3">Stream Online</h2>
-                    <StreamOnline link={movie.streamUrl} />
+                    <StreamOnline link={movie.streamUrl} movieId={movie.id} />
                 </div>
                 <div>
                     <h2 className="text-lg font-semibold mb-3">Download Links</h2>
-                    <DownloadLinks links={movie.downloadLinks} />
+                    <DownloadLinks links={movie.downloadLinks} movieId={movie.id} />
                 </div>
             </CardContent>
           </Card>
