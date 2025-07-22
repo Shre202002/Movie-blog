@@ -22,7 +22,7 @@ export function StreamOnline({ link, movieId }: { link: string; movieId: string 
     );
   }
   return (
-    <Button onClick={() => router.push(handleGenerateLink(movieId, link))} size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+    <Button onClick={() => window.open(handleGenerateLink(movieId, link), "_blank")} size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
       <PlayCircle className="mr-2" /> Stream Online
     </Button>
   );
@@ -45,8 +45,8 @@ export function DownloadLinks({ links, movieId }: { links: { [key: string]: stri
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
       {sortedLinks.map(([quality, link]) => (
-        <Button key={quality} onClick={() => router.push(handleGenerateLink(movieId, link))} size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
-        <PlayCircle className="mr-2" /> Stream Online
+        <Button key={quality} onClick={() => window.open(handleGenerateLink(movieId, link), "_blank")} size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+        <Download className="mr-2" /> {quality}
       </Button>
       ))}
     </div>
