@@ -1,30 +1,14 @@
-// "use client"
-import { getMovies } from '@/lib/data';
+import { getMovies, getAllMoviesForFilter } from '@/lib/data';
 import { SearchableMovieList } from '@/components/searchable-movie-list';
-import { Button } from '@/components/ui/button';
-import { collection, addDoc } from 'firebase/firestore';
-import {db} from '@/lib/firebase';
 
-export default async function HomePage() {
-  const allMovies = await getMovies();
+export default async function HomePage({ searchParams }: { searchParams?: { [key: string]: string | string[] | undefined } }) {
+  const page = typeof searchParams?.page === 'string' ? Number(searchParams.page) : 1;
+  const pageSize = 30;
 
-  // const handleInsert = async () => {
-  //   try {
-  //     const response = await fetch("/bollywood_movies.json"); // Load JSON from public folder
-  //     const data = await response.json(); // Parse it
-
-  //     const colRef = collection(db, "movies");
-
-  //     for (const item of data) {
-  //       await addDoc(colRef, item); // Insert each item
-  //       console.log("Inserted:", item);
-  //     }
-
-  //     alert("Data inserted successfully!");
-  //   } catch (error) {
-  //     console.error("Error inserting data:", error);
-  //   }
-  // };
+  const { movies, totalMovies } = await getMovies({ page, pageSize });
+  const allMoviesForFilter = await getAllMoviesForFilter();
+  
+  const totalPages = Math.ceil(totalMovies / pageSize);
 
   return (
     <main className="container mx-auto px-4 py-8">
@@ -33,9 +17,12 @@ export default async function HomePage() {
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
           Explore our collection of the latest and upcoming movies. Use the search below to find your next favorite film.
         </p>
-        {/* <Button onClick={handleInsert}>Upload Data</Button> */}
       </div>
-      <SearchableMovieList movies={allMovies} />
+      <SearchableMovieList 
+        initialMovies={movies} 
+        allMoviesForFilter={allMoviesForFilter}
+        pagination={{ currentPage: page, totalPages }} 
+      />
     </main>
   );
 }

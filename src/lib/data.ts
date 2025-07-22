@@ -1,10 +1,9 @@
 import { db } from './firebase';
-import { collection, getDocs, doc, getDoc, query, where, limit } from 'firebase/firestore';
+import { collection, getDocs, doc, getDoc, query, where, limit, orderBy, startAfter, documentId,getCountFromServer } from 'firebase/firestore';
 import type { Movie, FirestoreMovieData } from './types';
 import { slugify } from './utils';
 
-// Use a simple cache to avoid re-reading from firestore on every request
-let movieCache: Movie[] | null = null;
+// Cache individual movies, but not the whole list for pagination
 const singleMovieCache: Map<string, Movie> = new Map();
 
 function mapFirestoreDocToMovie(doc: any): Movie {
@@ -25,7 +24,7 @@ function mapFirestoreDocToMovie(doc: any): Movie {
         comingSoon: movieData.release ? new Date().getFullYear() < parseInt(movieData.release, 10) : false,
         language: movieData.country,
         quality: firestoreData.quality,
-        size: '', // This field doesn't seem to exist in the new structure
+        size: '', 
         streamUrl: movieData.stream_online_link?.link,
         downloadLinks: movieData.gdrive_links?.reduce((acc, link) => {
             if (link.title.includes('480p')) acc['480p'] = link.link;
@@ -37,43 +36,57 @@ function mapFirestoreDocToMovie(doc: any): Movie {
     };
 }
 
-
-export async function getMovies(): Promise<Movie[]> {
-  if (movieCache) {
-    return movieCache;
-  }
-  
+export async function getMovies({ page = 1, pageSize = 30 }: { page?: number; pageSize?: number }): Promise<{movies: Movie[], totalMovies: number}> {
   try {
     const moviesCollection = collection(db, 'movies');
-    const movieSnapshot = await getDocs(moviesCollection);
-    const movies: Movie[] = movieSnapshot.docs.map(mapFirestoreDocToMovie);
     
-    // Populate caches
-    movieCache = movies;
+    const countSnapshot = await getCountFromServer(moviesCollection);
+    const totalMovies = countSnapshot.data().count;
+
+    let q = query(moviesCollection, orderBy('title'), limit(pageSize));
+
+    if (page > 1) {
+      const first = query(moviesCollection, orderBy('title'), limit(pageSize * (page - 1)));
+      const documentSnapshots = await getDocs(first);
+      const lastVisible = documentSnapshots.docs[documentSnapshots.docs.length - 1];
+      if (lastVisible) {
+        q = query(moviesCollection, orderBy('title'), startAfter(lastVisible), limit(pageSize));
+      }
+    }
+    
+    const movieSnapshot = await getDocs(q);
+    const movies: Movie[] = movieSnapshot.docs.map(mapFirestoreDocToMovie);
+
     movies.forEach(movie => {
       singleMovieCache.set(movie.id, movie);
       singleMovieCache.set(movie.slug, movie);
     });
 
-    return movies;
+    return { movies, totalMovies };
   } catch (error) {
     console.error("Failed to fetch movies from Firestore", error);
-    return []; // Return empty array on error
+    return { movies: [], totalMovies: 0 };
   }
 }
+
+export async function getAllMoviesForFilter(): Promise<Movie[]> {
+  try {
+    const moviesCollection = collection(db, 'movies');
+    const movieSnapshot = await getDocs(moviesCollection);
+    const movies: Movie[] = movieSnapshot.docs.map(mapFirestoreDocToMovie);
+    return movies;
+  } catch (error) {
+    console.error("Failed to fetch all movies for filtering from Firestore", error);
+    return [];
+  }
+}
+
 
 export async function getMovieById(id: string): Promise<Movie | undefined> {
   if (singleMovieCache.has(id)) {
       return singleMovieCache.get(id);
   }
 
-  // If not in cache, fetch all movies to populate cache, then try again
-  await getMovies();
-  if(singleMovieCache.has(id)){
-      return singleMovieCache.get(id);
-  }
-
-  // As a final fallback, try to fetch directly
   try {
     const movieDocRef = doc(db, 'movies', id);
     const movieDoc = await getDoc(movieDocRef);
@@ -97,13 +110,6 @@ export async function getMovieBySlug(slug: string): Promise<Movie | undefined> {
     return singleMovieCache.get(slug);
   }
   
-  // If not in cache, fetch all movies to populate cache, then try again
-  await getMovies();
-  if (singleMovieCache.has(slug)) {
-    return singleMovieCache.get(slug);
-  }
-
-  // Fallback to direct query if still not found (should be rare)
   try {
     const moviesCollection = collection(db, 'movies');
     const q = query(moviesCollection, where("slug", "==", slug), limit(1));
