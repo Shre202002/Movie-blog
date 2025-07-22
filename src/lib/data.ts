@@ -1,3 +1,4 @@
+
 import { db } from './firebase';
 import { collection, getDocs, doc, getDoc, query, where, limit, orderBy, startAfter, documentId,getCountFromServer } from 'firebase/firestore';
 import type { Movie, FirestoreMovieData } from './types';
@@ -43,14 +44,17 @@ export async function getMovies({ page = 1, pageSize = 30 }: { page?: number; pa
     const countSnapshot = await getCountFromServer(moviesCollection);
     const totalMovies = countSnapshot.data().count;
 
-    let q = query(moviesCollection, orderBy('title'), limit(pageSize));
+    let q = query(moviesCollection, orderBy('data.release', 'desc'), limit(pageSize));
 
     if (page > 1) {
-      const first = query(moviesCollection, orderBy('title'), limit(pageSize * (page - 1)));
+      // To get the last document of the previous page, we fetch `pageSize * (page - 1)` documents
+      // and take the last one.
+      const first = query(moviesCollection, orderBy('data.release', 'desc'), limit(pageSize * (page - 1)));
       const documentSnapshots = await getDocs(first);
       const lastVisible = documentSnapshots.docs[documentSnapshots.docs.length - 1];
       if (lastVisible) {
-        q = query(moviesCollection, orderBy('title'), startAfter(lastVisible), limit(pageSize));
+        // Fetch the next page starting after the last visible document
+        q = query(moviesCollection, orderBy('data.release', 'desc'), startAfter(lastVisible), limit(pageSize));
       }
     }
     
