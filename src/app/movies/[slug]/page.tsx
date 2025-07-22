@@ -1,5 +1,6 @@
 
-import { getMovieBySlug } from '@/lib/data';
+
+import { getMovieBySlug, getSimilarMovies } from '@/lib/data';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -9,7 +10,7 @@ import { Separator } from '@/components/ui/separator';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { Star, Calendar, Film, Languages, Users, Video } from 'lucide-react';
 import { StreamOnline, DownloadLinks } from '@/components/movie-actions';
-import type { Movie } from '@/lib/types';
+import { MovieList } from '@/components/movie-list';
 
 
 export default async function MovieDetailsPage({ params }: { params: { slug: string } }) {
@@ -19,6 +20,8 @@ export default async function MovieDetailsPage({ params }: { params: { slug: str
     notFound();
   }
   
+  const similarMovies = movie.genre?.[0] ? await getSimilarMovies({ genre: movie.genre[0], currentMovieId: movie.id }) : [];
+
   const movieYear = movie.releaseDate ? new Date(movie.releaseDate).getFullYear() : 'N/A';
 
   const details = [
@@ -126,6 +129,17 @@ export default async function MovieDetailsPage({ params }: { params: { slug: str
                 </div>
             </CardContent>
           </Card>
+
+        {similarMovies.length > 0 && (
+          <Card>
+              <CardHeader>
+                <CardTitle>Similar Movies</CardTitle>
+              </CardHeader>
+              <CardContent>
+                <MovieList movies={similarMovies} />
+              </CardContent>
+            </Card>
+          )}
         </div>
       </div>
     </main>

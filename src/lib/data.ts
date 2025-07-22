@@ -135,3 +135,26 @@ export async function getMovieBySlug(slug: string): Promise<Movie | undefined> {
     return undefined;
   }
 }
+
+export async function getSimilarMovies({ genre, currentMovieId }: { genre: string, currentMovieId: string }): Promise<Movie[]> {
+  if (!genre) return [];
+
+  try {
+    const moviesCollection = collection(db, 'movies');
+    const q = query(
+      moviesCollection,
+      where('data.genre', 'array-contains', genre),
+      limit(6) // Fetch a few more to filter out the current one
+    );
+    const querySnapshot = await getDocs(q);
+    const similarMovies = querySnapshot.docs
+      .map(mapFirestoreDocToMovie)
+      .filter(movie => movie.id !== currentMovieId)
+      .slice(0, 5); // Return 5 movies
+
+    return similarMovies;
+  } catch (error) {
+    console.error('Failed to fetch similar movies:', error);
+    return [];
+  }
+}
