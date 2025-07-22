@@ -1,5 +1,5 @@
 "use client"
-import { getMovieById } from '@/lib/data';
+import { getMovieBySlug } from '@/lib/data';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -9,6 +9,8 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { Download, PlayCircle, Star, Calendar, Clock, Film, Languages, Users, Video } from 'lucide-react';
+import type { Movie } from '@/lib/types';
+
 
 function StreamOnline({ link }: { link: string }) {
   if (!link) {
@@ -54,10 +56,8 @@ function DownloadLinks({ links }: { links: { [key: string]: string } | undefined
 }
 
 
-export default async function MovieDetailsPage({ params }: { params: { id: string } }) {
-  const movie = await getMovieById(params.id);
-
-  console.log(movie)
+export default async function MovieDetailsPage({ params }: { params: { slug: string } }) {
+  const movie = await getMovieBySlug(params.slug);
 
   if (!movie) {
     notFound();

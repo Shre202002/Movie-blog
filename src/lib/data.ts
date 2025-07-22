@@ -3,8 +3,9 @@ import { collection, getDocs, doc, getDoc, query, where, limit } from 'firebase/
 import type { Movie, FirestoreMovieData } from './types';
 import { slugify } from './utils';
 
-// Use a simple cache to avoid re-reading from firestore on every request in development
+// Use a simple cache to avoid re-reading from firestore on every request
 let movieCache: Movie[] | null = null;
+const singleMovieCache: Map<string, Movie> = new Map();
 
 function mapFirestoreDocToMovie(doc: any): Movie {
     const firestoreData = doc.data() as FirestoreMovieData;
@@ -37,7 +38,7 @@ function mapFirestoreDocToMovie(doc: any): Movie {
 
 
 export async function getMovies(): Promise<Movie[]> {
-  if (process.env.NODE_ENV === 'production' && movieCache) {
+  if (movieCache) {
     return movieCache;
   }
   
@@ -45,7 +46,14 @@ export async function getMovies(): Promise<Movie[]> {
     const moviesCollection = collection(db, 'movies');
     const movieSnapshot = await getDocs(moviesCollection);
     const movies: Movie[] = movieSnapshot.docs.map(mapFirestoreDocToMovie);
+    
+    // Populate caches
     movieCache = movies;
+    movies.forEach(movie => {
+      singleMovieCache.set(movie.id, movie);
+      singleMovieCache.set(movie.slug, movie);
+    });
+
     return movies;
   } catch (error) {
     console.error("Failed to fetch movies from Firestore", error);
@@ -54,6 +62,17 @@ export async function getMovies(): Promise<Movie[]> {
 }
 
 export async function getMovieById(id: string): Promise<Movie | undefined> {
+  if (singleMovieCache.has(id)) {
+      return singleMovieCache.get(id);
+  }
+
+  // If not in cache, fetch all movies to populate cache, then try again
+  await getMovies();
+  if(singleMovieCache.has(id)){
+      return singleMovieCache.get(id);
+  }
+
+  // As a final fallback, try to fetch directly
   try {
     const movieDocRef = doc(db, 'movies', id);
     const movieDoc = await getDoc(movieDocRef);
@@ -61,8 +80,11 @@ export async function getMovieById(id: string): Promise<Movie | undefined> {
     if (!movieDoc.exists()) {
       return undefined;
     }
+    const movie = mapFirestoreDocToMovie(movieDoc);
+    singleMovieCache.set(movie.id, movie);
+    singleMovieCache.set(movie.slug, movie);
+    return movie;
 
-    return mapFirestoreDocToMovie(movieDoc);
   } catch (error) {
     console.error(`Failed to fetch movie with id ${id} from Firestore`, error);
     return undefined;
@@ -70,6 +92,17 @@ export async function getMovieById(id: string): Promise<Movie | undefined> {
 }
 
 export async function getMovieBySlug(slug: string): Promise<Movie | undefined> {
+  if (singleMovieCache.has(slug)) {
+    return singleMovieCache.get(slug);
+  }
+  
+  // If not in cache, fetch all movies to populate cache, then try again
+  await getMovies();
+  if (singleMovieCache.has(slug)) {
+    return singleMovieCache.get(slug);
+  }
+
+  // Fallback to direct query if still not found (should be rare)
   try {
     const moviesCollection = collection(db, 'movies');
     const q = query(moviesCollection, where("slug", "==", slug), limit(1));
@@ -81,7 +114,10 @@ export async function getMovieBySlug(slug: string): Promise<Movie | undefined> {
     }
 
     const movieDoc = querySnapshot.docs[0];
-    return mapFirestoreDocToMovie(movieDoc);
+    const movie = mapFirestoreDocToMovie(movieDoc);
+    singleMovieCache.set(movie.id, movie);
+    singleMovieCache.set(movie.slug, movie);
+    return movie;
 
   } catch (error) {
     console.error(`Failed to fetch movie with slug ${slug} from Firestore`, error);
