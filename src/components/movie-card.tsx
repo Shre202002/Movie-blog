@@ -1,19 +1,43 @@
 
+'use client';
+
 import Image from 'next/image';
 import Link from 'next/link';
 import type { Movie } from '@/lib/types';
 import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
-import { Star } from 'lucide-react';
+import { Star, Loader2 } from 'lucide-react';
+import { useState } from 'react';
+import { cn } from '@/lib/utils';
 
 export function MovieCard({ movie }: { movie: Movie }) {
+  const [isLoading, setIsLoading] = useState(false);
+
   const displayYear = movie.releaseDate && typeof movie.releaseDate === 'string'
     ? movie.releaseDate.split(', ')[1]
     : 'N/A';
 
+  const handleClick = (e: React.MouseEvent<HTMLAnchorElement>) => {
+    // Don't intercept clicks with modifier keys or for new tabs
+    if (e.ctrlKey || e.metaKey || e.shiftKey || e.button !== 0) {
+      return;
+    }
+    setIsLoading(true);
+  };
+
   return (
-    <Link href={`/movies/${movie.id}`} className="group block outline-none" tabIndex={0}>
-      <Card className="h-full overflow-hidden transition-all duration-300 group-hover:shadow-xl group-hover:scale-105 group-hover:border-primary focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background flex flex-col">
+    <Link 
+      href={`/movies/${movie.id}`} 
+      className="group block outline-none" 
+      tabIndex={0}
+      onClick={handleClick}
+    >
+      <Card className="h-full overflow-hidden transition-all duration-300 group-hover:shadow-xl group-hover:scale-105 group-hover:border-primary focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 focus-visible:ring-offset-background flex flex-col relative">
+        {isLoading && (
+          <div className="absolute inset-0 bg-background/80 z-10 flex items-center justify-center">
+            <Loader2 className="animate-spin h-10 w-10 text-primary" />
+          </div>
+        )}
         <CardContent className="p-0">
           <div className="relative aspect-[2/3] w-full">
             <Image
@@ -21,7 +45,7 @@ export function MovieCard({ movie }: { movie: Movie }) {
               alt={`Poster for ${movie.title}`}
               fill
               sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-              className="object-cover"
+              className={cn("object-cover", isLoading && 'opacity-50')}
               data-ai-hint="movie poster"
             />
             <div className="absolute top-2 left-2 flex items-center gap-1.5 rounded-full bg-black/70 px-2 py-1 text-xs font-semibold text-white">

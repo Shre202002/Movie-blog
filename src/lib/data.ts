@@ -1,5 +1,5 @@
 
-import { db } from './firebase';
+import { db, db2 } from './firebase';
 import { collection, getDocs, doc, getDoc, query, where, limit, orderBy, startAfter, documentId,getCountFromServer } from 'firebase/firestore';
 import type { Movie, FirestoreMovieData } from './types';
 import { slugify } from './utils';
@@ -157,4 +157,38 @@ export async function getSimilarMovies({ genre, currentMovieId }: { genre: strin
     console.error('Failed to fetch similar movies:', error);
     return [];
   }
+}
+
+export async function getRandomBlog(){
+  const domain = "https://www.aimlinfo.in"
+  try {
+    const collectionRef = collection(db2, 'posts'); // Replace 'posts' with your collection name
+    const snapshot = await getDocs(collectionRef);
+
+    if (snapshot.empty) {
+      return domain;
+    }
+
+    // Get all document IDs
+    const docIds = snapshot.docs.map(doc => doc.id);
+
+    // Pick a random ID
+    const randomId = docIds[Math.floor(Math.random() * docIds.length)];
+
+    // Fetch the random post by its ID
+    const randomPostDoc = await collectionRef.doc(randomId).get();
+
+    if (!randomPostDoc.exists) {
+      return "https://www.aimlinfo.in/"
+    }
+
+    const postData = randomPostDoc.data();
+    postData.id = randomPostDoc.id;
+
+    return ;
+
+  } catch (error) {
+    console.error('Error fetching random post:', error);
+    return NextResponse.json({ message: 'Internal Server Error', error: error.message }, { status: 500 });
+  } 
 }
