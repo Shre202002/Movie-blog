@@ -2,18 +2,22 @@
 'use client';
 
 import { Button } from '@/components/ui/button';
+import { getRandomBlog } from '@/lib/data';
 import { Download, PlayCircle } from 'lucide-react';
 import { useRouter } from 'next/navigation';
+import { useState } from 'react';
 
-function handleGenerateLink(movieId: string, link: string) {
-  const domain = "https://www.aimlinfo.in"
+async function handleGenerateLink(movieId: string, link: string) {
+  const domain = await getRandomBlog()
   const url = link.split("https://gigody.com/?id=")[1]
-  const finalLink = `${domain}/?ywegkqdsfljsaldfjlsdkfjlsadjfoiwueroiuxkvck=${movieId}---${url}---${movieId}`
-  return finalLink
+  const finalLink = `${domain}/?ywegkqdsfljsaldfjlsdkfjlsadjfoiwueroiuxkvck=${movieId}--${url}--${movieId}`
+  return finalLink;
+  // window.open(handleGenerateLink(movieId, link), "_blank")
 }
 
 export function StreamOnline({ link, movieId }: { link: string; movieId: string }) {
-  const router = useRouter()
+  const [buttonText, setButtonText] = useState('Stream Online');
+
   if (!link) {
     return (
       <Button size="lg" disabled>
@@ -22,14 +26,19 @@ export function StreamOnline({ link, movieId }: { link: string; movieId: string 
     );
   }
   return (
-    <Button onClick={() => window.open(handleGenerateLink(movieId, link), "_blank")} size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
-      <PlayCircle className="mr-2" /> Stream Online
+    <Button onClick={async() =>{
+      setButtonText("generating...")
+      window.open(await handleGenerateLink(movieId, link), "_blank")
+      setButtonText("Stream Online")
+    }} size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+      <PlayCircle className="mr-2" /> {buttonText}
     </Button>
   );
 }
 
+
 export function DownloadLinks({ links, movieId }: { links: { [key: string]: string } | undefined, movieId: string }) {
-  const router = useRouter()
+  
   if (!links || Object.keys(links).length === 0) {
     return (
       <p className="text-muted-foreground italic">No download links available.</p>
@@ -44,11 +53,19 @@ export function DownloadLinks({ links, movieId }: { links: { [key: string]: stri
 
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
-      {sortedLinks.map(([quality, link]) => (
-        <Button key={quality} onClick={() => window.open(handleGenerateLink(movieId, link), "_blank")} size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
-        <Download className="mr-2" /> {quality}
-      </Button>
-      ))}
+      {sortedLinks.map(([quality, link]) => {
+        const [buttonText, setButtonText] = useState(quality);
+        return(
+          <Button key={quality} onClick={
+            async() =>{
+              setButtonText("generating...")
+              window.open(await handleGenerateLink(movieId, link), "_blank")
+              setButtonText(quality)
+          }} size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
+          <Download className="mr-2" /> {buttonText}
+        </Button>
+        )
+      })}
     </div>
   );
 }

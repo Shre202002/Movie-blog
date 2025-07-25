@@ -160,35 +160,38 @@ export async function getSimilarMovies({ genre, currentMovieId }: { genre: strin
 }
 
 export async function getRandomBlog(){
+  
   const domain = "https://www.aimlinfo.in"
   try {
+    
     const collectionRef = collection(db2, 'posts'); // Replace 'posts' with your collection name
-    const snapshot = await getDocs(collectionRef);
 
-    if (snapshot.empty) {
+    // 1. Get total number of posts
+    const countSnap = await getCountFromServer(collectionRef);
+    const totalPost = countSnap.data().count;
+    console.log("total post", totalPost)
+    if (totalPost===0) {
       return domain;
     }
 
-    // Get all document IDs
-    const docIds = snapshot.docs.map(doc => doc.id);
+    //2. Generate random post number between 1 and totalPost
+    const randomPostNo = Math.floor(Math.random() * totalPost) + 1;
 
-    // Pick a random ID
-    const randomId = docIds[Math.floor(Math.random() * docIds.length)];
+     // 3. Query Firestore where post_no == randomPostNo
+  const q = query(
+    collectionRef,
+    where('post_no', '==', randomPostNo),
+    limit(1)
+  );
 
-    // Fetch the random post by its ID
-    const randomPostDoc = await collectionRef.doc(randomId).get();
+  const snapshot = await getDocs(q);
+  const doc = snapshot.docs[0];
 
-    if (!randomPostDoc.exists) {
-      return "https://www.aimlinfo.in/"
-    }
-
-    const postData = randomPostDoc.data();
-    postData.id = randomPostDoc.id;
-
-    return ;
+  return doc ? domain+"/posts/"+doc.data().slug : domain;
+    
 
   } catch (error) {
     console.error('Error fetching random post:', error);
-    return NextResponse.json({ message: 'Internal Server Error', error: error.message }, { status: 500 });
+    
   } 
 }

@@ -27,10 +27,14 @@ const firebaseConfig2 = {
 };
 
 // Initialize Firebase
-const app = !getApps().length ? initializeApp(firebaseConfig) : getApp();
+const app = getApps().find(app => app.name === '[DEFAULT]')
+? getApp()
+: initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-const app2 = !getApps().length ? initializeApp(firebaseConfig2) : getApp();
+const app2 = getApps().find(app => app.name === 'secondApp')
+? getApp('secondApp')
+: initializeApp(firebaseConfig2, 'secondApp');
 const db2 = getFirestore(app2);
 
 export { app, db, app2, db2 };
