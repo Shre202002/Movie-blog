@@ -30,7 +30,7 @@ const firebaseConfig2 = {
 const app = getApps().find(app => app.name === '[DEFAULT]')
 ? getApp()
 : initializeApp(firebaseConfig);
-const db = getFirestore(app);
+const db = getFirestore(app, "freemoviedownload");
 
 const app2 = getApps().find(app => app.name === 'secondApp')
 ? getApp('secondApp')
