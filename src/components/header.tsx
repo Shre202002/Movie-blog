@@ -10,10 +10,11 @@ import algoliasearch from 'algoliasearch/lite';
 import { InstantSearch, SearchBox, Hits, Highlight, useInstantSearch, Configure } from 'react-instantsearch';
 import Image from 'next/image'
 
-const searchClient = algoliasearch(
-  process.env.NEXT_PUBLIC_ALGOLIA_APP_ID || '',
-  process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_ONLY_API_KEY || ''
-);
+const appId = process.env.NEXT_PUBLIC_ALGOLIA_APP_ID || '';
+const apiKey = process.env.NEXT_PUBLIC_ALGOLIA_SEARCH_ONLY_API_KEY || '';
+
+const searchClient = appId && apiKey ? algoliasearch(appId, apiKey) : null;
+const indexName = process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME || 'movies';
 
 const Hit = ({ hit }: any) => (
   <a href={`/movies/${hit.objectID}`}>
@@ -72,30 +73,36 @@ export function Header() {
         <Link href="/" className="flex items-center gap-2 group">
           <Clapperboard className="h-8 w-8 text-primary transition-transform duration-300 group-hover:rotate-[-15deg]" />
           <span className="text-xl font-bold font-headline text-foreground transition-colors group-hover:text-primary">
-            Kiwi Cinema
+            Movie Reviews
           </span>
         </Link>
         <div className="w-full max-w-md">
-          <InstantSearch searchClient={searchClient} indexName={process.env.NEXT_PUBLIC_ALGOLIA_INDEX_NAME || 'movies'}>
-            <Configure hitsPerPage={5} />
-            <div className="relative">
-              <SearchBox
-                placeholder="Search movies..."
-                classNames={{
-                  root: '',
-                  form: 'relative',
-                  input:
-                    'w-full h-10 pl-10 pr-4 rounded-lg border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring',
-                  submit: 'hidden',
-                  reset: 'hidden',
-                }}
-              />
-              <SearchIcon
-                className="w-5 h-5 text-muted-foreground absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none"
-              />
-              <CustomHits />
+           {searchClient && indexName ? (
+            <InstantSearch searchClient={searchClient} indexName={indexName}>
+              <Configure hitsPerPage={5} />
+              <div className="relative">
+                <SearchBox
+                  placeholder="Search movies..."
+                  classNames={{
+                    root: '',
+                    form: 'relative',
+                    input:
+                      'w-full h-10 pl-10 pr-4 rounded-lg border border-input bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring',
+                    submit: 'hidden',
+                    reset: 'hidden',
+                  }}
+                />
+                <SearchIcon
+                  className="w-5 h-5 text-muted-foreground absolute left-3 top-1/2 -translate-y-1/2 pointer-events-none"
+                />
+                <CustomHits />
+              </div>
+            </InstantSearch>
+           ) : (
+            <div className="text-sm text-muted-foreground text-center p-2 rounded-md bg-muted">
+              Search is disabled. Please configure Algolia credentials.
             </div>
-          </InstantSearch>
+           )}
         </div>
       </div>
     </header>
