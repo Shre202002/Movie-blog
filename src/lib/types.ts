@@ -9,12 +9,10 @@ export interface Movie {
   director: string;
   actors: string[];
   plot: string;
+  review: string;
   comingSoon: boolean;
   language: string;
   quality: string;
-  size: string;
-  streamUrl: string;
-  downloadLinks: { [key: string]: string };
   category: string;
 }
 
@@ -39,13 +37,5 @@ export interface FirestoreMovieData {
         votes: string;
         review: string;
         description: string;
-        stream_online_link?: {
-            title: string;
-            link: string;
-        };
-        gdrive_links?: {
-            title: string;
-            link: string;
-        }[];
     };
 }

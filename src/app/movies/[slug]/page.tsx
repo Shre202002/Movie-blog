@@ -8,8 +8,7 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
-import { Star, Calendar, Film, Languages, Users, Video } from 'lucide-react';
-import { StreamOnline, DownloadLinks } from '@/components/movie-actions';
+import { Star, Calendar, Film, Languages, Users, Video, Clock } from 'lucide-react';
 import { MovieList } from '@/components/movie-list';
 
 
@@ -116,17 +115,12 @@ export default async function MovieDetailsPage({ params }: { params: { slug: str
 
           <Card>
             <CardHeader>
-              <CardTitle>Watch Movie</CardTitle>
+              <CardTitle>Our Review</CardTitle>
             </CardHeader>
             <CardContent className="space-y-6">
-                <div>
-                    <h2 className="text-lg font-semibold mb-3">Stream Online</h2>
-                    <StreamOnline link={movie.streamUrl} movieId={movie.id} />
-                </div>
-                <div>
-                    <h2 className="text-lg font-semibold mb-3">Download Links</h2>
-                    <DownloadLinks links={movie.downloadLinks} movieId={movie.id} />
-                </div>
+               <p className="text-muted-foreground leading-relaxed">
+                {movie.review || "No review available yet."}
+              </p>
             </CardContent>
           </Card>
 

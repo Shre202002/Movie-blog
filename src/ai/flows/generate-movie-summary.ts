@@ -1,3 +1,4 @@
+
 // This file is machine-generated - edit at your own risk!
 
 'use server';
@@ -23,7 +24,7 @@ const GenerateMovieSummaryInputSchema = z.object({
 export type GenerateMovieSummaryInput = z.infer<typeof GenerateMovieSummaryInputSchema>;
 
 const GenerateMovieSummaryOutputSchema = z.object({
-  summary: z.string().describe('A concise summary or highlight of the movie.'),
+  review: z.string().describe('A concise review of the movie, as a movie critic would write.'),
 });
 export type GenerateMovieSummaryOutput = z.infer<typeof GenerateMovieSummaryOutputSchema>;
 
@@ -35,7 +36,7 @@ const prompt = ai.definePrompt({
   name: 'generateMovieSummaryPrompt',
   input: {schema: GenerateMovieSummaryInputSchema},
   output: {schema: GenerateMovieSummaryOutputSchema},
-  prompt: `You are a movie expert. Generate a concise summary or highlight for the movie based on the following information.
+  prompt: `You are a movie critic. Generate a concise review for the movie based on the following information.
 
 Title: {{{title}}}
 Genre: {{{genre}}}
@@ -43,7 +44,7 @@ Director: {{{director}}}
 Actors: {{{actors}}}
 Plot: {{{plot}}}
 
-Summary: `,
+Review: `,
 });
 
 const generateMovieSummaryFlow = ai.defineFlow(
