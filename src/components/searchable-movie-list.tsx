@@ -3,9 +3,7 @@
 
 import { useState, useMemo, useEffect } from 'react';
 import type { Movie } from '@/lib/types';
-import { Input } from '@/components/ui/input';
 import { MovieList } from './movie-list';
-import { Search } from 'lucide-react';
 import {
   Select,
   SelectContent,
@@ -15,7 +13,6 @@ import {
 } from "@/components/ui/select"
 import { Label } from '@/components/ui/label';
 import { Pagination } from '@/components/pagination';
-import { useSearchParams, useRouter, usePathname } from 'next/navigation';
 
 interface SearchableMovieListProps {
   initialMovies: Movie[];
@@ -27,7 +24,6 @@ interface SearchableMovieListProps {
 }
 
 export function SearchableMovieList({ initialMovies, allMoviesForFilter, pagination }: SearchableMovieListProps) {
-  const [searchTerm, setSearchTerm] = useState('');
   const [selectedGenre, setSelectedGenre] = useState<string | null>(null);
   const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   const [selectedYear, setSelectedYear] = useState<string | null>(null);
@@ -71,9 +67,7 @@ export function SearchableMovieList({ initialMovies, allMoviesForFilter, paginat
   }, [allMoviesForFilter]);
 
   const filteredMovies = useMemo(() => {
-    // When filters are active, we filter from the complete list. 
-    // Otherwise, we show the paginated initial list.
-    const hasFilters = searchTerm || (selectedCategory && selectedCategory !== 'All') || (selectedGenre && selectedGenre !== 'All') || (selectedYear && selectedYear !== 'All');
+    const hasFilters = (selectedCategory && selectedCategory !== 'All') || (selectedGenre && selectedGenre !== 'All') || (selectedYear && selectedYear !== 'All');
     
     let sourceMovies = hasFilters ? allMoviesForFilter : initialMovies;
 
@@ -93,16 +87,8 @@ export function SearchableMovieList({ initialMovies, allMoviesForFilter, paginat
         result = result.filter(movie => movie.releaseDate && new Date(movie.releaseDate).getFullYear().toString() === selectedYear);
     }
 
-    if (searchTerm) {
-      result = result.filter(
-        movie =>
-          movie.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
-          (movie.director && movie.director.toLowerCase().includes(searchTerm.toLowerCase()))
-      );
-    }
-
     return result;
-  }, [initialMovies, allMoviesForFilter, searchTerm, selectedGenre, selectedCategory, selectedYear]);
+  }, [initialMovies, allMoviesForFilter, selectedGenre, selectedCategory, selectedYear]);
 
   const handleGenreChange = (genre: string) => {
     setSelectedGenre(genre === 'All' ? null : genre);
@@ -117,8 +103,8 @@ export function SearchableMovieList({ initialMovies, allMoviesForFilter, paginat
   }
 
   const hasActiveFilters = useMemo(() => {
-     return !!(searchTerm || (selectedCategory && selectedCategory !== 'All') || (selectedGenre && selectedGenre !== 'All') || (selectedYear && selectedYear !== 'All'));
-  }, [searchTerm, selectedCategory, selectedGenre, selectedYear]);
+     return !!((selectedCategory && selectedCategory !== 'All') || (selectedGenre && selectedGenre !== 'All') || (selectedYear && selectedYear !== 'All'));
+  }, [selectedCategory, selectedGenre, selectedYear]);
 
   if (!isClient) {
     return (
@@ -140,18 +126,6 @@ export function SearchableMovieList({ initialMovies, allMoviesForFilter, paginat
   return (
     <div className="space-y-8">
       <div className="max-w-5xl mx-auto space-y-4">
-        <div className="relative flex-grow">
-          <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
-          <Input
-            type="search"
-            placeholder="Search by title, director..."
-            className="pl-12 h-12 text-base w-full"
-            value={searchTerm}
-            onChange={e => setSearchTerm(e.target.value)}
-            aria-label="Search movies"
-          />
-        </div>
-        
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="grid gap-2">
                 <Label htmlFor="category-filter">Category</Label>
