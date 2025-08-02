@@ -14,6 +14,7 @@ export interface Movie {
   language: string;
   quality: string;
   category: string;
+  downloadLinks?: { [quality: string]: string };
 }
 
 export interface FirestoreMovieData {
@@ -37,5 +38,6 @@ export interface FirestoreMovieData {
         votes: string;
         review: string;
         description: string;
+        download_links?: { [quality: string]: string };
     };
 }

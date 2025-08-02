@@ -1,8 +1,9 @@
 
 import { db, db2 } from './firebase';
-import { collection, getDocs, doc, getDoc, query, where, limit, orderBy, startAfter, documentId,getCountFromServer } from 'firebase/firestore';
+import { collection, getDocs, doc, getDoc, query, where, limit, orderBy, startAfter, documentId, getCountFromServer } from 'firebase/firestore';
 import type { Movie, FirestoreMovieData } from './types';
 import { slugify } from './utils';
+import React from 'react';
 
 // Cache individual movies, but not the whole list for pagination
 const singleMovieCache: Map<string, Movie> = new Map();
@@ -27,6 +28,7 @@ function mapFirestoreDocToMovie(doc: any): Movie {
         language: movieData?.country || 'N/A',
         quality: firestoreData.quality || 'N/A',
         category: firestoreData.category || 'N/A',
+        downloadLinks: movieData?.download_links,
     };
 }
 
@@ -162,7 +164,6 @@ export async function getRandomBlog(){
     // 1. Get total number of posts
     const countSnap = await getCountFromServer(collectionRef);
     const totalPost = countSnap.data().count;
-    console.log("total post", totalPost)
     if (totalPost===0) {
       return domain;
     }
@@ -185,6 +186,6 @@ export async function getRandomBlog(){
 
   } catch (error) {
     console.error('Error fetching random post:', error);
-    
+    return domain;
   } 
 }

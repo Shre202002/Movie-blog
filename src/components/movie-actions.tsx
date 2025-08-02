@@ -12,7 +12,6 @@ async function handleGenerateLink(movieId: string, link: string) {
   const url = link.split("https://gigody.com/?id=")[1]
   const finalLink = `${domain}/?ywegkqdsfljsaldfjlsdkfjlsadjfoiwueroiuxkvck=${movieId}--${url}--${movieId}`
   return finalLink;
-  // window.open(handleGenerateLink(movieId, link), "_blank")
 }
 
 export function StreamOnline({ link, movieId }: { link: string; movieId: string }) {
@@ -20,18 +19,18 @@ export function StreamOnline({ link, movieId }: { link: string; movieId: string 
 
   if (!link) {
     return (
-      <Button size="lg" disabled>
+      <Button size="lg" disabled className="w-full py-6 text-lg">
         <PlayCircle className="mr-2" /> Not Available
       </Button>
     );
   }
   return (
     <Button onClick={async() =>{
-      setButtonText("generating...")
+      setButtonText("Generating Link...")
       window.open(await handleGenerateLink(movieId, link), "_blank")
       setButtonText("Stream Online")
-    }} size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
-      <PlayCircle className="mr-2" /> {buttonText}
+    }} size="lg" className="w-full py-6 text-lg bg-accent text-accent-foreground hover:bg-accent/90">
+      <PlayCircle className="mr-2 h-6 w-6" /> {buttonText}
     </Button>
   );
 }
@@ -54,19 +53,32 @@ export function DownloadLinks({ links, movieId }: { links: { [key: string]: stri
   return (
     <div className="grid grid-cols-2 md:grid-cols-3 gap-3">
       {sortedLinks.map(([quality, link]) => {
-        const [buttonText, setButtonText] = useState(quality);
         return(
-          <Button key={quality} onClick={
-            async() =>{
-              setButtonText("generating...")
-              window.open(await handleGenerateLink(movieId, link), "_blank")
-              setButtonText(quality)
-          }} size="lg" className="bg-accent text-accent-foreground hover:bg-accent/90">
-          <Download className="mr-2" /> {buttonText}
-        </Button>
+          <DownloadButton key={quality} quality={quality} link={link} movieId={movieId} />
         )
       })}
     </div>
   );
 }
 
+function DownloadButton({ quality, link, movieId }: { quality: string, link: string, movieId: string }) {
+  const [buttonText, setButtonText] = useState(quality);
+  
+  const handleClick = async () => {
+    setButtonText("Generating...");
+    try {
+      const generatedLink = await handleGenerateLink(movieId, link);
+      window.open(generatedLink, "_blank");
+    } catch (error) {
+      console.error("Failed to generate link", error);
+    } finally {
+      setButtonText(quality);
+    }
+  };
+
+  return (
+    <Button onClick={handleClick} size="lg" className="bg-primary hover:bg-primary/90">
+      <Download className="mr-2" /> {buttonText}
+    </Button>
+  );
+}
