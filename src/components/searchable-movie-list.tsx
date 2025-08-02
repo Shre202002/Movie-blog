@@ -140,7 +140,7 @@ export function SearchableMovieList({ initialMovies, allMoviesForFilter, paginat
   return (
     <div className="space-y-8">
       <div className="max-w-5xl mx-auto space-y-4">
-        {/* <div className="relative flex-grow">
+        <div className="relative flex-grow">
           <Search className="absolute left-4 top-1/2 -translate-y-1/2 h-5 w-5 text-muted-foreground" />
           <Input
             type="search"
@@ -150,7 +150,7 @@ export function SearchableMovieList({ initialMovies, allMoviesForFilter, paginat
             onChange={e => setSearchTerm(e.target.value)}
             aria-label="Search movies"
           />
-        </div> */}
+        </div>
         
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="grid gap-2">
