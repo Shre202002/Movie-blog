@@ -24,6 +24,8 @@ export function MovieCard({ movie }: { movie: Movie }) {
     }
     setIsLoading(true);
   };
+  
+  const shortTitle = movie.title.split(' ').slice(0, 5).join(' ') + (movie.title.split(' ').length > 5 ? '...' : '');
 
   return (
     <Link 
@@ -59,7 +61,7 @@ export function MovieCard({ movie }: { movie: Movie }) {
           </div>
         </CardContent>
         <div className="p-4 flex flex-col flex-grow">
-            <CardTitle className="font-headline text-lg text-foreground truncate">{movie.title}</CardTitle>
+            <CardTitle className="font-headline text-lg text-foreground truncate" title={movie.title}>{shortTitle}</CardTitle>
             <div className="text-sm text-muted-foreground mt-1">{displayYear}</div>
             <CardFooter className="p-0 pt-4 mt-auto">
                 <Badge variant="secondary" className="truncate">{movie.genre && movie.genre[0]}</Badge>
