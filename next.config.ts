@@ -1,3 +1,4 @@
+
 import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
@@ -39,6 +40,10 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'imagetot.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i3.extraimage.xyz',
       }
     ],
   },
