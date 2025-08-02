@@ -35,7 +35,7 @@ function MovieDetailsTable({ movie }: { movie: Movie }) {
                 <React.Fragment key={detail.label}>
                     <div className="flex justify-between py-3">
                         <span className="font-semibold flex items-center gap-2">
-                            <detail.icon className="w-4 h-4 text-primary-foreground" /> {detail.label}
+                            <detail.icon className="w-4 h-4 text-foreground" /> {detail.label}
                         </span>
                         <span className="text-right text-muted-foreground">{detail.value}</span>
                     </div>
