@@ -57,6 +57,10 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'new2.imgpress.xyz',
+      },
+      {
+        protocol: 'https',
+        hostname: 'i.ytimg.com',
       }
     ],
   },
