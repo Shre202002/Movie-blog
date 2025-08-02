@@ -15,6 +15,7 @@ export interface Movie {
   quality: string;
   category: string;
   downloadLinks?: { [quality: string]: string };
+  comments?: Comment[];
 }
 
 export interface FirestoreMovieData {
@@ -41,3 +42,12 @@ export interface FirestoreMovieData {
         download_links?: { [quality: string]: string };
     };
 }
+
+export interface Comment {
+    id: string;
+    movieId: string;
+    name: string;
+    comment: string;
+    createdAt: Date;
+  }
+  

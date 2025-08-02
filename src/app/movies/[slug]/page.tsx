@@ -11,6 +11,7 @@ import { MovieList } from '@/components/movie-list';
 import { StreamOnline } from '@/components/movie-actions';
 import type { Movie } from '@/lib/types';
 import { WatchNowButton } from '@/components/watch-now-button';
+import { Comments } from '@/components/comments';
 
 
 function MovieDetailsTable({ movie }: { movie: Movie }) {
@@ -121,11 +122,11 @@ export default async function MovieDetailsPage({ params }: { params: { slug: str
       </Card>
 
       <div className="mb-8">
-        <WatchNowButton movieId={movie.id} />
-      </div>
-      
-      <div className="mb-8">
         <StreamOnline movieId={movie.id} />
+      </div>
+
+      <div className="my-8">
+        <Comments movieId={movie.id} comments={movie.comments || []} />
       </div>
 
       {similarMovies.length > 0 && (

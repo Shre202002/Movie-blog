@@ -1,7 +1,7 @@
 
 import { db, db2 } from './firebase';
-import { collection, getDocs, doc, getDoc, query, where, limit, orderBy, startAfter, documentId, getCountFromServer } from 'firebase/firestore';
-import type { Movie, FirestoreMovieData } from './types';
+import { collection, getDocs, doc, getDoc, query, where, limit, orderBy, startAfter, documentId, getCountFromServer, Timestamp } from 'firebase/firestore';
+import type { Movie, FirestoreMovieData, Comment } from './types';
 import { slugify } from './utils';
 import React from 'react';
 
@@ -83,7 +83,10 @@ export async function getAllMoviesForFilter(): Promise<Movie[]> {
 
 export async function getMovieById(id: string): Promise<Movie | undefined> {
   if (singleMovieCache.has(id)) {
-      return singleMovieCache.get(id);
+      const movie = singleMovieCache.get(id);
+      if (movie && movie.comments) {
+        return movie;
+      }
   }
 
   try {
@@ -94,6 +97,8 @@ export async function getMovieById(id: string): Promise<Movie | undefined> {
       return undefined;
     }
     const movie = mapFirestoreDocToMovie(movieDoc);
+    movie.comments = await getCommentsForMovie(id);
+
     singleMovieCache.set(movie.id, movie);
     singleMovieCache.set(movie.slug, movie);
     return movie;
@@ -106,7 +111,10 @@ export async function getMovieById(id: string): Promise<Movie | undefined> {
 
 export async function getMovieBySlug(slug: string): Promise<Movie | undefined> {
   if (singleMovieCache.has(slug)) {
-    return singleMovieCache.get(slug);
+    const movie = singleMovieCache.get(slug);
+      if (movie && movie.comments) {
+        return movie;
+      }
   }
   
   try {
@@ -121,6 +129,8 @@ export async function getMovieBySlug(slug: string): Promise<Movie | undefined> {
 
     const movieDoc = querySnapshot.docs[0];
     const movie = mapFirestoreDocToMovie(movieDoc);
+    movie.comments = await getCommentsForMovie(movie.id);
+
     singleMovieCache.set(movie.id, movie);
     singleMovieCache.set(movie.slug, movie);
     return movie;
@@ -153,6 +163,31 @@ export async function getSimilarMovies({ genre, currentMovieId }: { genre: strin
     return [];
   }
 }
+
+async function getCommentsForMovie(movieId: string): Promise<Comment[]> {
+    try {
+      const commentsCollection = collection(db, 'comments');
+      const q = query(
+        commentsCollection,
+        where('movieId', '==', movieId),
+        orderBy('createdAt', 'desc')
+      );
+      const querySnapshot = await getDocs(q);
+      return querySnapshot.docs.map(doc => {
+        const data = doc.data();
+        return {
+          id: doc.id,
+          movieId: data.movieId,
+          name: data.name,
+          comment: data.comment,
+          createdAt: (data.createdAt as Timestamp).toDate(),
+        };
+      });
+    } catch (error) {
+      console.error('Failed to fetch comments for movie:', error);
+      return [];
+    }
+  }
 
 export async function getRandomBlog(){
   
