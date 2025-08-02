@@ -51,7 +51,7 @@ export function MovieCard({ movie }: { movie: Movie }) {
               data-ai-hint="movie poster"
             />
             <div className="absolute top-2 left-2 flex items-center gap-1.5 rounded-full bg-black/70 px-2 py-1 text-xs font-semibold text-white">
-                <Star className="w-3 h-3 text-accent fill-accent" />
+                <Star className="w-3 h-3 text-primary-foreground fill-primary-foreground" />
                 <span>{movie.rating ? movie.rating.toFixed(1) : 'N/A'}</span>
             </div>
             <Badge variant="default" className="absolute top-2 right-2 rounded-sm text-xs bg-accent text-accent-foreground hover:bg-accent/80">
