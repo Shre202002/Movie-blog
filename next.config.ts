@@ -9,7 +9,7 @@ const nextConfig: NextConfig = {
   eslint: {
     ignoreDuringBuilds: true,
   },
-  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx'],
+  pageExtensions: ['ts', 'tsx', 'js', 'jsx', 'md', 'mdx', 'ico'],
   images: {
     remotePatterns: [
       {
@@ -53,6 +53,10 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'upload.wikimedia.org',
+      },
+      {
+        protocol: 'https',
+        hostname: 'new2.imgpress.xyz',
       }
     ],
   },
