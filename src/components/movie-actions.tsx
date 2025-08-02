@@ -10,12 +10,12 @@ function handleGenerateLink(movieId: string) {
 }
 
 export function StreamOnline({ movieId }: { movieId: string }) {
-  const [buttonText, setButtonText] = useState('Stream Online');
+  const [buttonText, setButtonText] = useState('Watch Now');
 
   const handleClick = async () => {
     setButtonText("Generating Link...")
     window.open(handleGenerateLink(movieId), "_blank")
-    setButtonText("Stream Online")
+    setButtonText("Watch Now")
   };
 
   return (
