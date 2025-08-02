@@ -86,7 +86,7 @@ export default async function MovieDetailsPage({ params }: { params: { slug: str
         </BreadcrumbList>
       </Breadcrumb>
       
-      <h1 className="text-3xl text-center md:text-4xl font-bold font-headline text-primary mb-6">{movie.title}</h1>
+      <h1 className="text-3xl text-center md:text-4xl font-bold font-headline text-primary-foreground mb-6">{movie.title}</h1>
 
       <div className="grid md:grid-cols-12 gap-8 mb-8">
         <div className="md:col-span-4 lg:col-span-3">
