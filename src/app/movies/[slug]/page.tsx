@@ -1,6 +1,6 @@
 
 
-import { getMovieBySlug, getSimilarMovies, getMovieById } from '@/lib/data';
+import { getSimilarMovies, getMovieById } from '@/lib/data';
 import { notFound } from 'next/navigation';
 import Image from 'next/image';
 import Link from 'next/link';
@@ -8,8 +8,9 @@ import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
-import { Star, Calendar, Film, Languages, Users, Video, Clock } from 'lucide-react';
+import { Star, Calendar, Film, Languages, Users, Video } from 'lucide-react';
 import { MovieList } from '@/components/movie-list';
+import { WatchNowButton } from '@/components/watch-now-button';
 
 
 export default async function MovieDetailsPage({ params }: { params: { slug: string } }) {
@@ -119,10 +120,12 @@ export default async function MovieDetailsPage({ params }: { params: { slug: str
             </CardHeader>
             <CardContent className="space-y-6">
                <p className="text-muted-foreground leading-relaxed">
-                {movie.review || "No review available yet."}
+                {movie.review || "No review available."}
               </p>
             </CardContent>
           </Card>
+          
+          <WatchNowButton />
 
         {similarMovies.length > 0 && (
           <Card>
