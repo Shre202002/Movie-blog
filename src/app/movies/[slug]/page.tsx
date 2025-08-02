@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { getSimilarMovies, getMovieById } from '@/lib/data';
 import { notFound } from 'next/navigation';
@@ -85,7 +86,7 @@ export default async function MovieDetailsPage({ params }: { params: { slug: str
         </BreadcrumbList>
       </Breadcrumb>
       
-      <h1 className="text-3xl md:text-4xl font-bold font-headline text-primary mb-6">{movie.title}</h1>
+      <h1 className="text-3xl text-center md:text-4xl font-bold font-headline text-primary mb-6">{movie.title}</h1>
 
       <div className="grid md:grid-cols-12 gap-8 mb-8">
         <div className="md:col-span-4 lg:col-span-3">
@@ -110,9 +111,11 @@ export default async function MovieDetailsPage({ params }: { params: { slug: str
           <CardTitle>Storyline</CardTitle>
         </CardHeader>
         <CardContent>
-          <p className="text-muted-foreground leading-relaxed">
-            {finalPlot}
-          </p>
+          <div className="text-muted-foreground leading-relaxed space-y-4">
+            {finalPlot.split('\n').filter(p => p.trim() !== '').map((paragraph, index) => (
+              <p key={index}>{paragraph}</p>
+            ))}
+          </div>
         </CardContent>
       </Card>
       
