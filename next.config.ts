@@ -48,6 +48,10 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'i5.extraimage.xyz',
+      },
+      {
+        protocol: 'https',
         hostname: 'upload.wikimedia.org',
       }
     ],
