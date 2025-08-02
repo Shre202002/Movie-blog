@@ -10,7 +10,7 @@ export function Header() {
         <Link href="/" className="flex items-center gap-2 group">
           <Clapperboard className="h-8 w-8 text-primary transition-transform duration-300 group-hover:rotate-[-15deg]" />
           <span className="text-xl font-bold font-headline text-foreground transition-colors group-hover:text-primary">
-            All Movies Download
+            Get Movie Review
           </span>
         </Link>
         <div className="w-full max-w-md">
