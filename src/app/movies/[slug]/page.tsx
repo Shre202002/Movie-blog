@@ -8,10 +8,10 @@ import { Separator } from '@/components/ui/separator';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { Star, Calendar, Film, Languages, Users, Video, Clapperboard, Tv } from 'lucide-react';
 import { MovieList } from '@/components/movie-list';
-import { StreamOnline } from '@/components/movie-actions';
 import type { Movie } from '@/lib/types';
 import { WatchNowButton } from '@/components/watch-now-button';
 import { Comments } from '@/components/comments';
+import { generateMoviePlot } from '@/ai/flows/generate-movie-plot';
 
 
 function MovieDetailsTable({ movie }: { movie: Movie }) {
@@ -51,6 +51,12 @@ export default async function MovieDetailsPage({ params }: { params: { slug: str
 
   if (!movie) {
     notFound();
+  }
+
+  let finalPlot = movie.plot;
+  if (movie.plot.split(' ').length < 100) {
+    const generatedPlot = await generateMoviePlot({ title: movie.title, plot: movie.plot });
+    finalPlot = generatedPlot.plot;
   }
   
   const similarMovies = movie.genre?.[0] ? await getSimilarMovies({ genre: movie.genre[0], currentMovieId: movie.id }) : [];
@@ -105,7 +111,7 @@ export default async function MovieDetailsPage({ params }: { params: { slug: str
         </CardHeader>
         <CardContent>
           <p className="text-muted-foreground leading-relaxed">
-            {movie.plot}
+            {finalPlot}
           </p>
         </CardContent>
       </Card>
@@ -122,7 +128,7 @@ export default async function MovieDetailsPage({ params }: { params: { slug: str
       </Card>
 
       <div className="mb-8">
-        <StreamOnline movieId={movie.id} />
+         <WatchNowButton movieId={movie.id} />
       </div>
 
       <div className="my-8">
