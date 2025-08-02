@@ -67,39 +67,52 @@ export function SearchableMovieList({ initialMovies, allMoviesForFilter, paginat
   }, [allMoviesForFilter]);
 
   const filteredMovies = useMemo(() => {
-    const hasFilters = (selectedCategory && selectedCategory !== 'All') || (selectedGenre && selectedGenre !== 'All') || (selectedYear && selectedYear !== 'All');
+    let sourceMovies = allMoviesForFilter;
     
-    let sourceMovies = hasFilters ? allMoviesForFilter : initialMovies;
-
-    let result = sourceMovies;
-
     if (selectedCategory && selectedCategory !== 'All') {
-        result = result.filter(movie => movie.category?.toLowerCase() === selectedCategory.toLowerCase());
+      sourceMovies = sourceMovies.filter(movie => movie.category?.toLowerCase() === selectedCategory.toLowerCase());
     }
 
     if (selectedGenre && selectedGenre !== 'All') {
-      result = result.filter(movie =>
+        sourceMovies = sourceMovies.filter(movie =>
         movie.genre && Array.isArray(movie.genre) && movie.genre.map(g => g.toLowerCase()).includes(selectedGenre.toLowerCase())
       );
     }
     
     if (selectedYear && selectedYear !== 'All') {
-        result = result.filter(movie => movie.releaseDate && new Date(movie.releaseDate).getFullYear().toString() === selectedYear);
+      sourceMovies = sourceMovies.filter(movie => movie.releaseDate && new Date(movie.releaseDate).getFullYear().toString() === selectedYear);
     }
 
-    return result;
+    const hasFilters = (selectedCategory && selectedCategory !== 'All') || (selectedGenre && selectedGenre !== 'All') || (selectedYear && selectedYear !== 'All');
+
+    return hasFilters ? sourceMovies : initialMovies;
   }, [initialMovies, allMoviesForFilter, selectedGenre, selectedCategory, selectedYear]);
 
   const handleGenreChange = (genre: string) => {
-    setSelectedGenre(genre === 'All' ? null : genre);
+    const newGenre = genre === 'All' ? null : genre;
+    setSelectedGenre(newGenre);
+    if(newGenre) {
+      setSelectedCategory(null);
+      setSelectedYear(null);
+    }
   };
 
   const handleCategoryChange = (category: string) => {
-    setSelectedCategory(category === 'All' ? null : category);
+    const newCategory = category === 'All' ? null : category;
+    setSelectedCategory(newCategory);
+    if(newCategory) {
+      setSelectedGenre(null);
+      setSelectedYear(null);
+    }
   }
 
   const handleYearChange = (year: string) => {
-    setSelectedYear(year === 'All' ? null : year);
+    const newYear = year === 'All' ? null : year;
+    setSelectedYear(newYear);
+    if(newYear) {
+      setSelectedGenre(null);
+      setSelectedCategory(null);
+    }
   }
 
   const hasActiveFilters = useMemo(() => {
@@ -129,7 +142,7 @@ export function SearchableMovieList({ initialMovies, allMoviesForFilter, paginat
         <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
             <div className="grid gap-2">
                 <Label htmlFor="category-filter">Category</Label>
-                <Select onValueChange={handleCategoryChange} defaultValue={selectedCategory || 'All'}>
+                <Select onValueChange={handleCategoryChange} value={selectedCategory || 'All'}>
                   <SelectTrigger id="category-filter" className="h-12 text-base">
                     <SelectValue placeholder="Select a category" />
                   </SelectTrigger>
@@ -145,7 +158,7 @@ export function SearchableMovieList({ initialMovies, allMoviesForFilter, paginat
 
             <div className="grid gap-2">
                 <Label htmlFor="genre-filter">Genre</Label>
-                <Select onValueChange={handleGenreChange} defaultValue={selectedGenre || 'All'}>
+                <Select onValueChange={handleGenreChange} value={selectedGenre || 'All'}>
                     <SelectTrigger id="genre-filter" className="h-12 text-base">
                         <SelectValue placeholder="Select a genre" />
                     </SelectTrigger>
@@ -161,7 +174,7 @@ export function SearchableMovieList({ initialMovies, allMoviesForFilter, paginat
 
             <div className="grid gap-2">
                 <Label htmlFor="year-filter">Release Year</Label>
-                <Select onValueChange={handleYearChange} defaultValue={selectedYear || 'All'}>
+                <Select onValueChange={handleYearChange} value={selectedYear || 'All'}>
                 <SelectTrigger id="year-filter" className="h-12 text-base">
                     <SelectValue placeholder="Select a year" />
                 </SelectTrigger>
