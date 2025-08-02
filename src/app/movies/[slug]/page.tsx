@@ -10,6 +10,8 @@ import { Star, Calendar, Film, Languages, Users, Video, Clapperboard, Tv } from 
 import { MovieList } from '@/components/movie-list';
 import { StreamOnline, DownloadLinks } from '@/components/movie-actions';
 import type { Movie } from '@/lib/types';
+import { WatchNowButton } from '@/components/watch-now-button';
+
 
 function MovieDetailsTable({ movie }: { movie: Movie }) {
     const movieYear = movie.releaseDate ? new Date(movie.releaseDate).getFullYear() : 'N/A';
@@ -117,9 +119,13 @@ export default async function MovieDetailsPage({ params }: { params: { slug: str
           </p>
         </CardContent>
       </Card>
+
+      <div className="mb-8">
+        <WatchNowButton movieId={movie.id} />
+      </div>
       
       <div className="mb-8">
-        <StreamOnline link={movie.downloadLinks?.['720p'] || ''} movieId={movie.id} />
+        <StreamOnline movieId={movie.id} />
       </div>
 
       <Card className="mb-8">
