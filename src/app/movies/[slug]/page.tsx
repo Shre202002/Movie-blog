@@ -56,8 +56,14 @@ export default async function MovieDetailsPage({ params }: { params: { slug: str
 
   let finalPlot = movie.plot;
   if (movie.plot.split(' ').length < 100) {
-    const generatedPlot = await generateMoviePlot({ title: movie.title, plot: movie.plot });
-    finalPlot = generatedPlot.plot;
+    try {
+        const generatedPlot = await generateMoviePlot({ title: movie.title, plot: movie.plot });
+        finalPlot = generatedPlot.plot;
+    } catch (error) {
+        console.error("Failed to generate movie plot, falling back to original plot.", error);
+        // If the AI call fails, we just use the original plot. 
+        // The page can still be rendered.
+    }
   }
   
   const similarMovies = movie.genre?.[0] ? await getSimilarMovies({ genre: movie.genre[0], currentMovieId: movie.id }) : [];
