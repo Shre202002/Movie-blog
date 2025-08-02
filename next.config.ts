@@ -48,6 +48,10 @@ const nextConfig: NextConfig = {
       },
       {
         protocol: 'https',
+        hostname: 'i4.extraimage.xyz',
+      },
+      {
+        protocol: 'https',
         hostname: 'i5.extraimage.xyz',
       },
       {
