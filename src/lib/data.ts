@@ -28,7 +28,6 @@ function mapFirestoreDocToMovie(doc: any): Movie {
         language: movieData?.country || 'N/A',
         quality: firestoreData.quality || 'N/A',
         category: firestoreData.category || 'N/A',
-        downloadLinks: movieData?.download_links,
     };
 }
 
@@ -169,11 +168,10 @@ async function getCommentsForMovie(movieId: string): Promise<Comment[]> {
       const commentsCollection = collection(db, 'comments');
       const q = query(
         commentsCollection,
-        where('movieId', '==', movieId),
-        orderBy('createdAt', 'desc')
+        where('movieId', '==', movieId)
       );
       const querySnapshot = await getDocs(q);
-      return querySnapshot.docs.map(doc => {
+      const comments = querySnapshot.docs.map(doc => {
         const data = doc.data();
         return {
           id: doc.id,
@@ -183,6 +181,12 @@ async function getCommentsForMovie(movieId: string): Promise<Comment[]> {
           createdAt: (data.createdAt as Timestamp).toDate(),
         };
       });
+      
+      // Sort comments by creation date in descending order
+      comments.sort((a, b) => b.createdAt.getTime() - a.createdAt.getTime());
+      
+      return comments;
+
     } catch (error) {
       console.error('Failed to fetch comments for movie:', error);
       return [];
