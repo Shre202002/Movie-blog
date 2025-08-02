@@ -8,7 +8,7 @@ import { Separator } from '@/components/ui/separator';
 import { Breadcrumb, BreadcrumbItem, BreadcrumbLink, BreadcrumbList, BreadcrumbPage, BreadcrumbSeparator } from '@/components/ui/breadcrumb';
 import { Star, Calendar, Film, Languages, Users, Video, Clapperboard, Tv } from 'lucide-react';
 import { MovieList } from '@/components/movie-list';
-import { StreamOnline, DownloadLinks } from '@/components/movie-actions';
+import { StreamOnline } from '@/components/movie-actions';
 import type { Movie } from '@/lib/types';
 import { WatchNowButton } from '@/components/watch-now-button';
 
@@ -127,16 +127,6 @@ export default async function MovieDetailsPage({ params }: { params: { slug: str
       <div className="mb-8">
         <StreamOnline movieId={movie.id} />
       </div>
-
-      <Card className="mb-8">
-        <CardHeader>
-            <CardTitle>Download Links</CardTitle>
-        </CardHeader>
-        <CardContent>
-            <DownloadLinks links={movie.downloadLinks} movieId={movie.id} />
-        </CardContent>
-      </Card>
-
 
       {similarMovies.length > 0 && (
         <Card>
