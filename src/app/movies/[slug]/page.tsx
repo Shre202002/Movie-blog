@@ -125,7 +125,7 @@ export default async function MovieDetailsPage({ params }: { params: { slug: str
             </CardContent>
           </Card>
           
-          <WatchNowButton />
+          <WatchNowButton movieId={movie.id} />
 
         {similarMovies.length > 0 && (
           <Card>
