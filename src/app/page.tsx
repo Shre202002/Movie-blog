@@ -1,5 +1,5 @@
 
-import { getMovies, getAllMoviesForFilter } from '@/lib/data';
+import { getMovies } from '@/lib/data';
 import { SearchableMovieList } from '@/components/searchable-movie-list';
 
 export default async function HomePage({ searchParams }: { searchParams?: { [key: string]: string | string[] | undefined } }) {
@@ -7,7 +7,6 @@ export default async function HomePage({ searchParams }: { searchParams?: { [key
   const pageSize = 30;
 
   const { movies, totalMovies } = await getMovies({ page, pageSize });
-  const allMoviesForFilter = await getAllMoviesForFilter();
   
   const totalPages = Math.ceil(totalMovies / pageSize);
 
@@ -16,12 +15,11 @@ export default async function HomePage({ searchParams }: { searchParams?: { [key
       <div className="text-center mb-12">
         <h1 className="text-4xl md:text-5xl font-bold font-headline mb-2 text-foreground">All Movies</h1>
         <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-          Explore our collection of the latest and upcoming movies. Use the search below to find your next favorite film.
+          Explore our collection of the latest and upcoming movies.
         </p>
       </div>
       <SearchableMovieList 
         initialMovies={movies} 
-        allMoviesForFilter={allMoviesForFilter}
         pagination={{ currentPage: page, totalPages }} 
       />
     </main>
