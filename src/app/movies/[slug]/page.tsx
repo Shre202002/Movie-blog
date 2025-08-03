@@ -55,7 +55,7 @@ export default async function MovieDetailsPage({ params }: { params: { slug: str
   }
 
   let finalPlot = movie.plot;
-  if (movie.plot.split(' ').length < 100) {
+  if (movie.plot.split(' ').length < 15) {
     try {
         const generatedPlot = await generateMoviePlot({ title: movie.title, plot: movie.plot });
         finalPlot = generatedPlot.plot;
