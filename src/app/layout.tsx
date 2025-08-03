@@ -17,10 +17,46 @@ const fontHeadline = Space_Grotesk({
   variable: '--font-headline',
 });
 
-export const metadata: Metadata = {
-  title: 'Kiwi Cinema Clone',
-  description: 'A modern movie listing website built with Next.js.',
+
+export const metadata : Metadata= {
+  title: 'Movie Blog – Reviews, Trailers, and News',
+  description:
+    'Discover the latest movie reviews, upcoming trailers, and entertainment news. Your go-to blog for all things movies, curated with passion for cinema fans.',
+  keywords: [
+    'Movie Blog',
+    'Film Reviews',
+    'Latest Trailers',
+    'Upcoming Movies',
+    'Entertainment News',
+    'Hollywood News',
+    'Bollywood Movies',
+    'Cinema Blog',
+    'Movie Ratings',
+  ],
+  authors: [{ name: 'Shre', url: 'https://github.com/Shre202002' }],
+  creator: 'Shre',
+  openGraph: {
+    title: 'Movie Blog – Reviews, Trailers, and News',
+    description:
+      'Your daily dose of movie magic. Get in-depth reviews, the latest trailers, and fresh entertainment news at Movie Blog.',
+    url: 'https://movie-blog.vercel.app',
+    siteName: 'Movie Blog',
+    locale: 'en_US',
+    type: 'website',
+    images: [
+      {
+        url: '/cover-image.png', // Place an image in /public
+        width: 1200,
+        height: 630,
+        alt: 'Movie Blog cover image',
+      },
+    ],
+  },
+  icons: {
+    icon: '/favicon.ico',
+  },
 };
+
 
 export default function RootLayout({
   children,
